@@ -1,0 +1,21 @@
+{% extends "Posts/padre.html" %}
+
+{% load static %}
+
+{% block contenidoQueCambia %}
+
+    <p class="detalle-user">Posted by user <i>{{object.date}}</i></p>
+    <p class="detalle-titulo-puzzles">{{object.title}}</p>
+    <picture class="detalle__container-imagen">
+        <img src="{{object.image.url}}" alt="" class="detalle-imagen">
+    </picture>
+    <details class="detalle-solucion-puzzle">
+        <summary class="boton-solucion">Ver Solución</summary>
+        <p>{{object.solution}}</p>
+    </details>
+    <p class="detalle-contenido-puzzles">{{object.content}}</p>
+    <div class="detalle__container-botones">
+        <button class="boton-editar"><a href="{% url 'PuzzlesUpdate' object.id %}">Editar</a></button>
+        <button class="boton-eliminar"><a href="{% url 'PuzzlesDelete' object.id %}">Eliminar</a></button>
+    </div>
+{% endblock %}

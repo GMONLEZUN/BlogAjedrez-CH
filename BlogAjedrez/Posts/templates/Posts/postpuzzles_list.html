@@ -1,0 +1,21 @@
+{% extends "Posts/padre.html" %}
+
+{% load static %}
+
+{% block contenidoQueCambia %}
+    <h3 class="titulo-categoria">Problemas</h3>
+    <div class="divisor"></div>
+    <button class="boton-newpost"><a href="{% url 'PuzzlesCreation' %}">Nuevo Post</a></button>
+    {% if object_list %}
+        {% for puzzle in object_list %}
+        
+            <div class="container-post">
+                <div class="container-post__userTitle">
+                    <p class="container-post__title">{{puzzle.title}}</p><span class="fecha-lista">posted by @user > {{puzzle.date}}</span>
+                </div>
+                <button class="boton-ver"><a href="{% url 'PuzzlesDetail' puzzle.id %}"><i class="fa-solid fa-eye icon-eye"></i></a></button>
+            </div>
+
+        {% endfor %}
+    {% endif %}
+{% endblock %}

@@ -1,0 +1,13 @@
+{% extends "Posts/padre.html" %}
+
+{% load static %}
+
+{% block contenidoQueCambia %}
+    <h3>{{object.title}}</h3>
+    
+    <form method="post">{% csrf_token %}
+        estas seguro que deseas borrar el post "{{ object }}"?
+        <input type="submit" value="SI">
+    
+    </form>
+{% endblock %}

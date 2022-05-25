@@ -1,0 +1,18 @@
+{% extends "Posts/padre.html" %}
+
+{% load static %}
+
+{% block contenidoQueCambia %}
+
+    <p class="detalle-user">Posted by user <i>{{object.date}}</i></p>
+    <p class="detalle-titulo">{{object.title}}</p>
+    
+    <p class="detalle-contenido-biografia"><picture class="detalle__container-imagen-biografia">
+        <img src="{{object.image.url}}" alt="" class="detalle-imagen-biografia">
+    </picture>{{object.content}} Lorem ipsum dolor sit amet consectetur adipisicing elit. Quod perferendis doloribus in itaque sint inventore aliquid dicta dolor praesentium corporis, tempora nisi ipsam expedita minus nulla dolores! Modi, assumenda animi. Lorem ipsum, dolor sit amet consectetur adipisicing elit. Consequuntur recusandae reiciendis impedit eos officiis possimus, voluptatibus beatae eligendi, quis repellendus itaque modi ipsa accusantium officia rerum non. Nesciunt, sint animi! Lorem ipsum dolor sit, amet consectetur adipisicing elit. Perspiciatis laudantium aspernatur officia! Hic provident nemo asperiores laborum omnis, aliquid illo reiciendis voluptatibus deleniti, dignissimos quis similique delectus id laudantium quaerat. Lorem ipsum dolor sit amet consectetur adipisicing elit. Quis minus libero aperiam est, voluptates architecto qui, eligendi animi deserunt distinctio facere iste optio autem placeat, maiores expedita veniam? Odit, ex? Lorem ipsum dolor sit amet consectetur adipisicing elit. Aliquam dolores officiis, atque recusandae ipsum voluptatum? Unde et consequatur inventore reiciendis, minus nulla sunt! Voluptas nihil doloribus perspiciatis neque nisi voluptates? </p>
+    <div class="detalle__container-botones">
+        <button class="boton-editar"><a href="{% url 'BioUpdate' object.id %}">Editar</a></button>
+        <button class="boton-eliminar"><a href="{% url 'BioDelete' object.id %}">Eliminar</a></button>
+        
+    </div>
+{% endblock %}

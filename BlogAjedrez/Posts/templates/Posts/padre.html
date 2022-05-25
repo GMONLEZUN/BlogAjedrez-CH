@@ -1,0 +1,68 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    {% load static %}
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <script src="https://kit.fontawesome.com/a993a604d4.js" crossorigin="anonymous"></script>
+    <link rel="stylesheet" href="{% static 'Posts/css/style.css' %}">
+    <title>_chess.py</title>
+</head>
+<body>
+    <header class="main-header">
+        <nav class="nav-flex">
+            <div class="container-nav">
+                <a href="{% url 'Index' %}"><img src="{% static 'Posts/assets/logo.png' %}" alt="logo" class="logo-proyecto"></a>
+                <ul>
+                    <li><a href="{% url 'PuzzlesList' %}">Problemas</a></li>
+                    <li><a href="{% url 'BioList' %}">Biografías</a></li>
+                    <li><a href="{% url 'GamesList' %}">Partidas</a></li>
+                    <li><a href="{% url 'About' %}">About</a></li>
+                </ul>
+            </div>
+ 
+            <ul>
+                <li class="usuario"><span class="arroba">@</span>administrador</li>
+                <li><a href=""><i class="fa-solid fa-sliders settings"></i></a></li>
+                <li><a href=""><i class="fa-solid fa-message messages"></i></a></li>
+            </ul>
+        </nav>
+    </header>
+    <div class="container">
+
+        <section class="banner-right">
+            <article class="publicidad">
+
+            </article>
+        </section>
+
+        <section class="contenidoQueCambia">
+            {% block contenidoQueCambia %}
+    
+            {% endblock %}
+        </section>
+
+        <section class="banner-left">
+
+        </section>
+    </div>
+    
+    <footer>
+        <div class="container-autor">
+            <p class="nombre-autor"> Gabriel Monlezun</p> 
+            <p>
+                <a href="https://www.linkedin.com/in/gabriel-monlezun-5a6349116/"><i class="fa-brands fa-linkedin linkedin-logo"></i></a>
+                <a href="https://github.com/GMONLEZUN"><i class="fa-brands fa-github github-logo"></i></a>
+            </p>
+        </div>
+        <div class="container-footer">
+            <p>Inspired by</p>
+            <a href="https://www.coderhouse.com/"><img src="{% static 'Posts/assets/logos_coderhouse.png' %}" alt="Logo CoderHouse" class="coder-logo"></a>
+        </div>
+        <p><i class="fa-solid fa-location-dot location"></i>Argentina, Ciudad de Buenos Aires</p>
+    </footer>
+        
+       
+</body>
+</html>

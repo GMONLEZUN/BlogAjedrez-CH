@@ -1,0 +1,456 @@
+html{
+    padding: 0;
+    margin: 0;
+    box-sizing: border-box;
+    font-family: Verdana, Geneva, Tahoma, sans-serif;
+}
+
+body{
+    position: relative;
+    background-color: black; 
+    margin: 0;
+    z-index: 1;
+}
+
+/* -----------------------HEADER----------------------- */
+
+.main-header{
+    background: rgb(59,0,255);
+    background: linear-gradient(124deg, rgba(59,0,255,0.47942927170868344) 0%, rgba(111,89,240,0.27494747899159666) 32%, rgba(164,255,210,0.4822303921568627) 59%, rgba(74,121,102,0.3533788515406162) 82%, rgba(1,50,22,0.6026785714285714) 100%);
+    position: relative;
+    z-index: 100;
+    height: 9.2vh;
+    width: 100%;
+    margin: 0;
+    display: flex;
+    justify-content: center;
+}
+
+.nav-flex{
+    position: inherit;
+    display: flex;
+    flex-direction: row;
+    height: 100%;
+    justify-content:center;
+    align-items: center;
+    gap: 200px;
+    padding: 10px 200px;
+    top: 0;
+    bottom: 0;
+}
+
+.container-nav{
+    display: flex;
+    flex-direction: row;
+    justify-content: flex-start;
+    align-items: center;
+}
+.logo-proyecto{
+    position: relative;
+    height: 100%;
+    width: 140px;
+    object-fit: cover;
+    transform: scale(115%);
+    top: -7px;
+    align-self: center;
+}
+
+.container-nav>ul{
+    margin: 0;
+    padding: 0;
+}
+
+.container-nav>ul>li {
+    display: inline-block;
+    padding: 7px 13px;
+    text-decoration: none;
+    background-image: linear-gradient(rgba(255, 255, 255, 0.425), rgba(255, 255, 255, 0.425));
+    background-position: 0% 100%;
+    background-repeat: no-repeat;
+    background-size: 100% 0;
+    transition: background-size .3s;
+}
+
+
+.container-nav li:hover {
+    /* padding: 13px 13px;
+    background: rgba(29, 29, 29, 0.534); */
+    background-size: 100% 4px;
+}
+
+.nav-flex>ul>li {
+    display: inline-block;
+}
+
+.usuario{
+    color: rgb(170, 170, 170);
+    margin-right: 20px;
+}
+.arroba{
+    color: rgb(104, 100, 100);
+    font-size: bold;
+}
+.settings{
+    color: white;
+    font-size: 120%;
+    margin-right: 10px;
+}
+.messages{
+    color: white;
+    font-size: 120%;
+}
+
+li a {
+    text-decoration: none;
+    color: white;
+}
+
+/* ----------------------- FIN HEADER ----------------------- */
+
+/* ----------------------- FOOTER ----------------------- */
+
+footer{
+    position: relative;
+    display: flex;
+    flex-direction: row;
+    justify-content: center;
+    align-items: center;
+    width: 100%;
+    max-width: 100%;
+    bottom: 0;
+    margin: 0 auto;
+    height: 5vh;
+    background: rgb(29,29,29);
+    background: linear-gradient(124deg, rgba(29,29,29,0.39539565826330536) 0%, rgba(100,98,112,0.27494747899159666) 28%, rgba(100,98,112,0.3253676470588235) 59%, rgba(100,98,112,0.3309698879551821) 82%, rgba(29,29,29,0.3981967787114846) 100%);
+    color: rgb(107, 103, 103);
+    padding: 10px 0px;
+    z-index: 100;
+}
+.container-footer{
+    display: flex;
+    flex-direction: row;
+    justify-content: end;
+    margin-left: 300px;
+    margin-right: 300px;
+}
+.coder-logo{
+    height: 50px;
+    width: 120px;
+    object-fit:scale-down;
+    padding-left: 10px;
+}
+
+.container-autor{
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    gap: 5px;
+    padding: 0;
+}
+.container-autor>p{
+    margin: 0;
+    padding: 0;
+}
+.linkedin-logo{
+    color: white;
+    transform: scale(110%);
+    margin-left: 5px;
+}
+.github-logo{
+    color: white;
+    transform: scale(110%);
+    margin-left: 5px;
+}
+.location{
+    color:rgb(179, 46, 46);
+    transform: scale(110%);
+    margin-right: 10px;
+}
+/* ----------------------- FIN FOOTER ----------------------- */
+
+/* ----------------------- PRINCIPAL Y BANNERS ----------------------- */
+.container{
+    position: relative;
+    display: flex;
+    flex-direction: row;
+    justify-content: space-between;
+    margin-top: 25px;
+    min-height: 79vh;
+    width: 70%;
+    margin: 25px auto 10px;
+    z-index: 1;
+    margin-bottom: 2vh;
+}
+
+.banner-right{
+    position: relative;
+    width: 5%;
+    left: 0;
+    margin: 0 auto;
+    padding: 10px;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+}
+
+.banner-left{
+    position: relative;
+    width: 5%;
+    right: 0;
+    margin: 0 auto;
+    padding: 10px;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+}
+
+/* ----------------------- FIN PRINCIPAL Y BANNERS ----------------------- */
+
+/* ----------------------- CONTENIDO QUE CAMBIA ----------------------- */
+
+.contenidoQueCambia{
+    position: relative;
+    width: 50%;
+    min-width: 30%;
+    border: 1px solid rgba(211, 211, 211, 0.103);
+    border-radius: 15px;
+    padding: 15px;
+    color: white;
+    z-index: 10;
+}
+.titulo-categoria{
+    font-size: 1.7rem;
+    color: rgb(204, 199, 199);
+    margin-left: 1.2rem;
+    margin-bottom: 5px;
+}
+.divisor{
+    height: 3px;
+    width: 97%;
+    background: rgb(124,122,135);
+    background: linear-gradient(124deg, rgba(124,122,135,0.27494747899159666) 13%, rgba(100,98,112,0.3253676470588235) 34%, rgba(100,98,112,0.3309698879551821) 52%, rgba(29,29,29,0.3981967787114846) 80%);
+    margin-left: 1.2rem;
+    margin-bottom: 20px;
+}
+.boton-newpost {
+    position: inherit;
+    display: block;
+    width: 20%;
+    right: 0;
+    left: 0;
+    margin: 0 auto;
+    background: rgb(39,78,130);
+    background: linear-gradient(180deg, rgba(39,78,130,1) 0%, rgba(38,82,143,1) 12%, rgba(26,91,153,1) 32%, rgba(26,91,153,1) 68%, rgba(38,82,143,1) 88%, rgba(39,78,130,1) 100%);    color: white;
+    font-size: .9rem;
+    font-weight: bold;
+    border: none;
+    outline: none;
+    padding: 10px 0;
+    border-radius: 25px;
+    margin-bottom: 20px;
+}
+.boton-newpost a{
+    text-decoration: none;
+    color: inherit;
+}
+
+.container-post{
+    display: flex;
+    flex-direction: row;
+    justify-content: space-between;
+    align-items: center;
+    background-color: rgba(51, 47, 47, 0.589);
+    border-radius: 5px;
+    padding: 5px 10px;
+    margin: 10px 0;
+}
+.container-post-bio{
+    display: flex;
+    flex-direction: row;
+    justify-content: space-between;
+    align-items: center;
+    background-color: rgba(51, 47, 47, 0.589);
+    border-radius: 5px;
+    padding: 0 10px 0 0;
+    margin: 10px 0;
+}
+.container-title{
+    display: flex;
+    flex-direction: row;
+    justify-content: flex-start;
+    align-items: center;
+    gap: 15px;
+}
+.imagen-miniatura-container{
+    width: 70px;
+    height: 70px;
+}
+.img-miniatura{
+    width: 100%;
+    height: 100%;
+    border-top-left-radius: 5px;
+    border-bottom-left-radius: 5px;
+    object-fit: cover;
+    object-position: center;
+}
+.container-post__userTitle{
+    display: flex;
+    flex-direction: column-reverse;
+    justify-content: center;
+    align-items: start;
+}
+.fecha-lista{
+    font-size: 0.6rem;
+    color: gray;
+    padding: 0;
+    margin: 0;
+}
+.container-post__title{
+    font-size: 0.9rem;
+    padding: 0;
+    margin: 6px 0;
+}
+
+.boton-ver{
+    display: flex;
+    position: relative;
+    justify-content: center;
+    align-items: center;
+    height: 30px;
+    width: 30px;
+    border-radius: 50%;
+    background-color: rgba(45, 15, 102, 0.233);
+    border: 1px solid rgba(211, 211, 211, 0.178);
+    outline: none;
+}
+.icon-eye{
+    position: relative;
+    color: white;
+    right: 0;
+    left: 0;
+    margin: 0 auto;
+    padding: 7px;
+}
+
+.detalle-user{
+    font-size: .8rem;
+    color: rgb(88, 88, 88);
+}
+
+.detalle__container-imagen{
+    display: flex;
+    justify-content: center;
+    
+}
+.detalle-imagen{
+    position: relative;
+    float: left;
+    width: 70%;
+    object-fit: fill;
+}
+
+.detalle-titulo{
+    font-size: 170%;
+    text-align: center;
+    margin-top: 15px;
+    margin-bottom: 35px;
+}
+.detalle__container-botones{
+    display: flex;
+    flex-direction: row;
+    justify-content: center;
+    align-items: center;
+    gap: 10px;
+}
+.boton-editar{
+    position: inherit;
+    display: block;
+    width: 15%;
+    background-color: rgb(82, 80, 80);
+    color: white;
+    font-size: .9rem;
+    font-weight: bold;
+    border: none;
+    outline: none;
+    padding: 10px 0;
+    border-radius: 25px;
+}
+
+.boton-editar a{
+    text-decoration: none;
+    color: inherit;
+}
+
+.boton-eliminar{
+    position: inherit;
+    display: block;
+    width: 15%;
+    background-color: rgb(197, 28, 28);
+    color: white;
+    font-size: .9rem;
+    font-weight: bold;
+    border: none;
+    outline: none;
+    padding: 10px 0;
+    border-radius: 25px;
+}
+
+.boton-eliminar a{
+    text-decoration: none;
+    color: inherit;
+}
+
+        /* ------------------------ vista de biografía ---------------------- */
+
+.detalle__container-imagen-biografia{
+    float: right;
+    border-radius: 50%;
+    margin-left: 20px;
+    margin-bottom: 20px;
+    margin-top: 10px;
+}
+.detalle-contenido-biografia{
+    color: white;
+    text-align: left;
+    font-size: 0.95rem;
+    margin-bottom: 50px;
+}
+
+.detalle-imagen-biografia{
+    width: 200px;
+    height: 200px;
+    object-fit: cover;
+    object-position: top;
+    border-radius: 50%;
+}
+        /* ------------------------ fin vista de biografía ---------------------- */
+
+        /* ------------------------ vista de puzzles ---------------------- */
+
+        .detalle-solucion-puzzle{
+            margin: 25px 0;
+            display: flex;
+            justify-content: center;
+            align-content: center;
+            text-align: center;
+        }
+        .boton-solucion{
+            background-color: rgb(92, 138, 92);
+            width: 30%;
+            border-radius: 15px;
+            right: 0;
+            left: 0;
+            margin: 0 auto;
+            padding: 5px 0;
+        }
+        .detalle-titulo-puzzles{
+            font-size: 140%;
+            text-align: center;
+            margin-top: 15px;
+            margin-bottom: 35px;
+        }
+        .detalle-contenido-puzzles{
+            margin: 30px 0 50px 0;
+        }
+        /* ------------------------ finvista de puzzles ---------------------- */
