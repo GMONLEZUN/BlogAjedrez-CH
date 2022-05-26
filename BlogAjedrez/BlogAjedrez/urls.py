@@ -18,10 +18,12 @@ from django.urls import path, include
 
 from django.conf import settings
 from django.conf.urls.static import static
+from BlogAjedrez.views import index
 
 urlpatterns = [
     path('admin/', admin.site.urls),
-    path('Posts/', include('Posts.urls'))
+    path('Posts/', include('Posts.urls')),
+    path('', index),
 ]
 
 

@@ -15,9 +15,14 @@ class PostBio(models.Model):
 
 
 class PostGames(models.Model):
+    RESULT_CHOICES = (
+    (1, '1-0'),
+    (2, '0-1'),
+    (3, '1/2-1/2'),
+)
     title = models.CharField(max_length=255)
     title_players = models.CharField(max_length=255)
-    result = models.CharField(max_length=255)
+    result = models.IntegerField(choices=RESULT_CHOICES)
     content = models.CharField(max_length=555)
     image = models.ImageField(upload_to='images_post',null=False,blank=False)
     date = models.DateTimeField(default=now, editable=False)

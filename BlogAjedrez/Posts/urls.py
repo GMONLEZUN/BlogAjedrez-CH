@@ -1,15 +1,17 @@
 from django import views
 from django.urls import path
-from Posts.views import index, puzzles, offTopic, about, searchPost, GamesList,GamesDetail,GamesCreation,GamesUpdate,GamesDelete, BioCreation,BioDelete,BioDetail,BioList,BioUpdate, PuzzlesCreation,PuzzlesDelete,PuzzlesDetail,PuzzlesUpdate, PuzzlesList
+from Posts.views import index, about, login_request,register,GamesList,GamesDetail,GamesCreation,GamesUpdate,GamesDelete, BioCreation,BioDelete,BioDetail,BioList,BioUpdate, PuzzlesCreation,PuzzlesDelete,PuzzlesDetail,PuzzlesUpdate, PuzzlesList
+from django.contrib.auth.views import LogoutView
 
 
 
 urlpatterns = [
 
     path('', index, name="Index"),
-    path('puzzles/', puzzles, name="Puzzles"),
-    path('offtopic/', offTopic, name="OffTopic"),
     path('about/', about, name="About"),
+    path('login/', login_request, name="Login"),
+    path('register/', register, name="Register"),
+    path('logout/', LogoutView.as_view(template_name='Posts/index.html'), name="Logout"),
 
     path('games/list/', GamesList.as_view(), name="GamesList"),
     path('games/<pk>', GamesDetail.as_view(), name="GamesDetail"),

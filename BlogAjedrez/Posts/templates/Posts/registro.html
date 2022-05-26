@@ -1,0 +1,12 @@
+{% extends "Posts/padre.html" %}
+
+{% load static %}
+
+{% block contenidoQueCambia %}
+    <form action="" method="POST">
+        {% csrf_token %}
+        {{form.as_p}}
+        <button type="submit">Sign up</button>
+    </form>
+    <p class="mensaje-login">{{mensaje}}</p>
+{% endblock %}
