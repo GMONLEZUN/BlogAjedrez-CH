@@ -1,12 +1,29 @@
-{% extends "Posts/padre.html" %}
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    {% load static %}
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <script src="https://kit.fontawesome.com/a993a604d4.js" crossorigin="anonymous"></script>
+    <link rel="stylesheet" href="{% static 'Posts/css/style.css' %}">
+    <title>_chess.py</title>
+</head>
+<body class="body-login">
+    {% block contenidoQueCambia %}
+        <div class="container-login">
+            <div class="cuadro-login">
+                <img src="{% static 'Posts/assets/logo.png' %}" alt="logo" class="logo-proyecto-login">
+                <form action="" method="POST" class="form-login">
+                    {% csrf_token %}
+                    {{form.as_p}}
+                    <button type="submit" class="boton-login-cuadro">Login</button>
+                    <p class="mensaje-registrate">¿No tenés una cuenta? <a href="{% url 'Register' %}" class="mensaje-registrate-link">Registrate</a></p>
+                </form>
+                <p class="mensaje-login">{{mensaje}}</p>
+            </div>
+        </div>
+    {% endblock %}
+</body>
 
-{% load static %}
-
-{% block contenidoQueCambia %}
-    <form action="" method="POST">
-        {% csrf_token %}
-        {{form.as_p}}
-        <button type="submit">Login</button>
-    </form>
-    <p class="mensaje-login">{{mensaje}}</p>
-{% endblock %}
+</html>

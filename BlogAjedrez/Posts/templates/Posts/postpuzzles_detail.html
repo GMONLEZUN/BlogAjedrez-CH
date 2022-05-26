@@ -13,9 +13,18 @@
         <summary class="boton-solucion">Ver Solución</summary>
         <p>{{object.solution}}</p>
     </details>
-    <p class="detalle-contenido-puzzles">{{object.content}}</p>
-    <div class="detalle__container-botones">
-        <button class="boton-editar"><a href="{% url 'PuzzlesUpdate' object.id %}">Editar</a></button>
-        <button class="boton-eliminar"><a href="{% url 'PuzzlesDelete' object.id %}">Eliminar</a></button>
-    </div>
+    
+    {% if object.content %}
+        <p class="detalle-contenido-puzzles">{{object.content}}</p>
+    {% endif %}
+    
+    {% if object.author.id == request.user.id %}
+
+        <div class="detalle__container-botones">
+            <button class="boton-editar"><a href="{% url 'PuzzlesUpdate' object.id %}">Editar</a></button>
+            <button class="boton-eliminar"><a href="{% url 'PuzzlesDelete' object.id %}">Eliminar</a></button>
+        </div>
+
+    {% endif %}
+
 {% endblock %}

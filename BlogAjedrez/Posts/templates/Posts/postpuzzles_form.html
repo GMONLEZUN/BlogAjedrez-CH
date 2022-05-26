@@ -3,9 +3,20 @@
 {% load static %}
 
 {% block contenidoQueCambia %}
-    <form action="" method="post" enctype="multipart/form-data">{% csrf_token %}
-        {{ form.as_p}}
-        <input type="submit" value="ENVIAR">
-    </form>
+
+
+    <div class="container-post-form">
+        <h1 class="titulo-post-form">Nuevo post - Problema</h1>
+        <div class="divisor"></div>
+        <form action="" method="POST" enctype="multipart/form-data" class="formulario-post">{% csrf_token %}
+            <div class="p-form">
+                {{form.as_p}}
+                <button type="submit" class="boton-post-form">Post!</button>
+            </div>
+        </form>
+    </div>
+
 
 {% endblock %}
+
+

@@ -13,7 +13,7 @@
                 <div class="container-title">
                     <div class="imagen-miniatura-container"><img src="{{biografia.image.url}}" alt="" class="img-miniatura"></div>
                     <div class="container-post__userTitle">
-                        <p class="container-post__title">{{biografia.title}}</p><span class="fecha-lista">posted by @user > {{biografia.date}}</span>
+                        <p class="container-post__title">{{biografia.title}}</p><span class="fecha-lista">posted by @{{biografia.author.username}} > {{biografia.date}}</span>
                     </div>
                 </div>
                 <button class="boton-ver"><a href="{% url 'BioDetail' biografia.id %}"><i class="fa-solid fa-eye icon-eye"></i></a></button>

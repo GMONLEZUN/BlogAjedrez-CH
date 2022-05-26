@@ -11,7 +11,7 @@
         
             <div class="container-post">
                 <div class="container-post__userTitle">
-                    <p class="container-post__title">{{partida.title}}</p><span class="fecha-lista">posted by @user > {{partida.date}}</span>
+                    <p class="container-post__title">{{partida.title}}</p><span class="fecha-lista">posted by @{{partida.author.username}} > {{partida.date}}</span>
                 </div>
                 <button class="boton-ver"><a href="{% url 'GamesDetail' partida.id %}"><i class="fa-solid fa-eye icon-eye"></i></a></button>
             </div>

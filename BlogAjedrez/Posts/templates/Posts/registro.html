@@ -3,10 +3,17 @@
 {% load static %}
 
 {% block contenidoQueCambia %}
-    <form action="" method="POST">
+    <div class="container-register">
+        <h1 class="titulo-register">Registro</h1>
+        <div class="divisor"></div>
+        <form action="" method="POST" class="formulario-register">
         {% csrf_token %}
-        {{form.as_p}}
-        <button type="submit">Sign up</button>
-    </form>
-    <p class="mensaje-login">{{mensaje}}</p>
+        <div class="p-form">
+            {{form.as_p}}
+            <button type="submit" class="boton-signup">Registrate</button>
+        </div>
+        </form>
+        <p class="mensaje-register">{{mensaje}}</p>
+    </div>
+    
 {% endblock %}

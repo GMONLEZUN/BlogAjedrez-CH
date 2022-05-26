@@ -2,7 +2,7 @@
 from msilib.schema import Class
 from django.http import HttpResponse
 from django.shortcuts import render
-from Posts.forms import UserRegistrationForm
+from Posts.forms import UserRegistrationForm,UserLoginForm
 from Posts.models import PostBio, PostGames, PostPuzzles
 from django.views.generic import ListView
 from django.views.generic.detail import DetailView
@@ -37,6 +37,9 @@ class BioCreation(LoginRequiredMixin,CreateView):
     model = PostBio
     success_url = reverse_lazy('BioList')
     fields = ['title', 'content','image']
+    def form_valid(self,form):
+        form.instance.author=self.request.user
+        return super().form_valid(form)
 
 class BioUpdate(LoginRequiredMixin,UpdateView):
     model = PostBio
@@ -75,12 +78,17 @@ class GamesDetail(DetailView):
 class GamesCreation(LoginRequiredMixin,CreateView):
     model = PostGames
     success_url = reverse_lazy('GamesList')
-    fields = ['title','title_players', 'result', 'content','image']
+    fields = ['title','title_players','result', 'content','image']
+    def form_valid(self,form):
+        form.instance.author=self.request.user
+        return super().form_valid(form)
+   
 
 class GamesUpdate(LoginRequiredMixin,UpdateView):
     model = PostGames
     success_url = reverse_lazy('GamesList')
     fields = ['title','title_players', 'result', 'content','image']
+
 
 class GamesDelete(LoginRequiredMixin,DeleteView):
     model = PostGames
@@ -101,6 +109,9 @@ class PuzzlesCreation(LoginRequiredMixin,CreateView):
     model = PostPuzzles
     success_url = reverse_lazy('PuzzlesList')
     fields = ['title','solution','content','image']
+    def form_valid(self,form):
+        form.instance.author=self.request.user
+        return super().form_valid(form)
 
 class PuzzlesUpdate(LoginRequiredMixin,UpdateView):
     model = PostPuzzles
@@ -116,7 +127,7 @@ class PuzzlesDelete(LoginRequiredMixin,DeleteView):
 
 def login_request(request):
     if request.method == 'POST':
-        form = AuthenticationForm(request = request, data = request.POST)
+        form = UserLoginForm(request = request, data = request.POST)
         if form.is_valid():
             user = form.cleaned_data.get('username')
             passwd = form.cleaned_data.get('password')
@@ -131,11 +142,11 @@ def login_request(request):
                 return render(request,'Posts/login.html',{"mensaje":mensaje, "form":form})
 
         else:
-            mensaje = "Ha ocurrido un error, formulario inválido"
+            mensaje = "El usuario o la contraseña son incorrectos"
             return render(request,'Posts/login.html',{"mensaje":mensaje, "form":form})
 
     else:
-        form = AuthenticationForm()
+        form = UserLoginForm()
         return render(request,'Posts/login.html',{"form":form})
 
 

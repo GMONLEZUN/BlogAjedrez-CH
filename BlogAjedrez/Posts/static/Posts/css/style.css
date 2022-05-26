@@ -34,7 +34,7 @@ body{
     justify-content:center;
     align-items: center;
     gap: 200px;
-    padding: 10px 200px;
+    padding: 10px 140px;
     top: 0;
     bottom: 0;
 }
@@ -87,13 +87,43 @@ body{
     margin-right: 20px;
 }
 .arroba{
-    color: rgb(104, 100, 100);
+    color: rgb(170, 170, 170);
     font-size: bold;
+}
+.logout{
+    margin: 0 6px;
+    font-size: 0.9rem;
+    color: rgb(243, 228, 209);
+}
+.logout-text{
+    font-size: 0.9rem;
+}
+.login{
+    margin: 0 6px;
+    font-size: 0.9rem;
+    color: rgb(243, 228, 209);
+}
+.login-text{
+    font-size: 0.9rem;
+}
+.register-text{
+    display: inline-block;
+    font-size: 0.9rem;
+    margin-left: 4px;
+    font-weight: bold;
+    outline: 1px solid rgba(255, 255, 255, 0.336);
+    padding: 4px 6px;
+}
+.online{
+    color: rgb(101, 236, 101);
+    margin-left: 3px;
+    transform: scale(70%);
 }
 .settings{
     color: white;
     font-size: 120%;
     margin-right: 10px;
+    margin-left: 15px;
 }
 .messages{
     color: white;
@@ -192,6 +222,7 @@ footer{
     display: flex;
     flex-direction: column;
     justify-content: center;
+    /* border: 1px solid red; */
 }
 
 .banner-left{
@@ -203,6 +234,8 @@ footer{
     display: flex;
     flex-direction: column;
     justify-content: center;
+    /* border: 1px solid red; */
+
 }
 
 /* ----------------------- FIN PRINCIPAL Y BANNERS ----------------------- */
@@ -212,12 +245,15 @@ footer{
 .contenidoQueCambia{
     position: relative;
     width: 50%;
-    min-width: 30%;
+    min-width: 650px;
     border: 1px solid rgba(211, 211, 211, 0.103);
     border-radius: 15px;
     padding: 15px;
     color: white;
     z-index: 10;
+    right: 0;
+    left: 0;
+    margin: 0 auto;
 }
 .titulo-categoria{
     font-size: 1.7rem;
@@ -438,7 +474,7 @@ footer{
         .boton-solucion{
             background-color: rgb(92, 138, 92);
             width: 30%;
-            border-radius: 15px;
+            border-radius: 5px;
             right: 0;
             left: 0;
             margin: 0 auto;
@@ -454,3 +490,435 @@ footer{
             margin: 30px 0 50px 0;
         }
         /* ------------------------ finvista de puzzles ---------------------- */
+
+        /* ------------------------ Vista de inicio ---------------------- */
+            .container-inicio{
+                /* border: 1px solid red; */
+                height: auto;
+                width: 95%;
+                position: relative;
+                right: 0;
+                left: 0;
+                margin: 0 auto;
+                padding: 28px 0 14px 0;
+            }
+
+            .container-inicio-problemas,.container-inicio-biografias,.container-inicio-partidas,.container-inicio-about,.container-register-login{
+                width: 90%;
+                /* border: 1px solid green; */
+                border-radius: 10px;
+                height: 94px;
+                right: 0;
+                left: 0;
+                margin: 0 auto 17px;
+            }
+            .container-inicio-problemas{
+                display: flex;
+                flex-direction: row;
+                align-items: center;
+                justify-content: space-between;
+                flex-wrap: nowrap;
+            }
+            .inicio-problemas-texto{
+                text-align: center;
+                border-top-left-radius: 10px;
+                border-bottom-left-radius: 10px;
+                flex-basis: 40%;
+                font-weight: bold;
+                font-size: 170%;
+                padding-top: 5px;
+                padding-left: 5px;
+            }
+            .inicio-problemas-img{
+                height: 100%;
+                width: 100%;
+                object-fit: cover;
+                filter: grayscale(100%);
+                border-top-right-radius: 10px;
+                border-bottom-right-radius: 10px;
+                flex-basis: 60%;
+                -webkit-clip-path: polygon(0 0, 100% 0, 100% 100%, 30% 100%); 
+                clip-path: polygon(0 0, 100% 0, 100% 100%, 30% 100%);
+            }
+            /* fin inicio-------------------------------------------------------------- */
+            
+            .container-inicio-biografias{
+                display: flex;
+                flex-direction: row;
+                align-items: center;
+                justify-content: space-between;
+                flex-wrap: nowrap;
+            }
+            .inicio-biografias-texto{
+                text-align: center;
+                flex-basis: 40%;
+                font-weight: bold;
+                font-size: 170%;
+                padding-top: 5px;
+                padding-left: 5px;
+            }
+            .inicio-biografias-img{
+                height: 100%;
+                width: 100%;
+                object-fit: cover;
+                object-position: 0px -4px;
+                filter: grayscale(100%);
+                border-top-left-radius: 10px;
+                border-bottom-left-radius: 10px;
+                flex-basis: 60%;
+                -webkit-clip-path: polygon(0 0, 100% 0, 70% 100%, 0 100%); 
+                clip-path: polygon(0 0, 100% 0, 70% 100%, 0 100%)
+            }
+            /* fin biografias-------------------------------------------------------------- */
+            .container-inicio-partidas{
+                display: flex;
+                flex-direction: row;
+                align-items: center;
+                justify-content: space-between;
+                flex-wrap: nowrap;
+            }
+            .inicio-partidas-texto{
+                text-align: center;
+                flex-basis: 40%;
+                font-weight: bold;
+                font-size: 170%;
+                padding-top: 5px;
+                padding-left: 5px;
+            }
+            .inicio-partidas-img{
+                height: 100%;
+                width: 100%;
+                object-fit: cover;
+                filter: grayscale(100%);
+                border-top-right-radius: 10px;
+                border-bottom-right-radius: 10px;
+                flex-basis: 60%;
+                -webkit-clip-path: polygon(0 0, 100% 0, 100% 100%, 30% 100%); 
+                clip-path: polygon(0 0, 100% 0, 100% 100%, 30% 100%);
+            }
+            /* fin partidas-------------------------------------------------------------- */
+            .container-inicio-about{
+                display: flex;
+                flex-direction: row;
+                align-items: center;
+                justify-content: space-between;
+                flex-wrap: nowrap;
+            }
+            .inicio-about-texto{
+                text-align: center;
+                flex-basis: 40%;
+                font-weight: bold;
+                font-size: 170%;
+                padding-top: 5px;
+                padding-left: 5px;
+            }
+            .inicio-about-img{
+                height: 100%;
+                width: 100%;
+                object-fit: cover;
+                object-position: -2px -26px;
+                filter: grayscale(100%);
+                border-top-left-radius: 10px;
+                border-bottom-left-radius: 10px;
+                flex-basis: 60%;
+                -webkit-clip-path: polygon(0 0, 100% 0, 70% 100%, 0 100%); 
+                clip-path: polygon(0 0, 100% 0, 70% 100%, 0 100%)
+            }
+            /* fin about-------------------------------------------------------------- */
+            .container-register-login{
+                height: 90px;
+                margin-top: 60px !important;
+                display: flex;
+                flex-direction: row;
+                justify-content: space-between;
+                align-items: center;
+                padding: 10px 35px;
+                box-sizing: border-box;
+                background: rgb(33,69,117);
+                background: linear-gradient(93deg, rgba(33,69,117,1) 0%, rgba(38,82,143,1) 43%, rgba(80,88,98,1) 53%, rgba(24,25,27,1) 100%);
+            }
+            .inicio-img-logo{
+                width: 300px;
+                height: auto;
+                object-fit: cover;
+                position: relative;
+                z-index: 50;
+            }
+            .container-inicio-register{
+                display: flex;
+                justify-content: center;
+                align-items: center;
+                font-size: 140%;
+                font-weight: bold;
+                color: white;
+                text-align: center;
+                margin: 0;
+            }
+            .container-inicio-login{
+                display: flex;
+                justify-content: center;
+                align-items: center;
+                font-size: 140%;
+                font-weight: bold;
+                color: white;
+                text-align: center;
+                margin: 0;
+            }
+
+            .container-inicio div a {
+                color: inherit;
+                text-decoration: none;
+            }
+            
+        /* ------------------------ fin Vista de inicio ---------------------- */
+        
+/* ----------------------- LOGIN  ----------------------- */
+
+.body-login{
+    background-image: url("./../assets/bg-login.svg");
+    background-repeat: no-repeat;
+    background-size:cover;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    width: 100vw;
+    height: 100vh;
+    box-sizing: border-box;
+}
+
+.container-login{
+    position: relative;
+    width: 320px;
+    height: 535px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    background-color: rgba(0, 0, 0, 0.473);
+    border-radius: 25px;
+    padding: 10px;
+    align-self: flex-start;
+    margin-top: 150px;
+    box-sizing: border-box;
+}
+.cuadro-login{
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    flex-direction: column;
+    box-sizing: border-box;
+}
+.logo-proyecto-login{
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    box-sizing: border-box;
+}
+.form-login{
+    align-self: center;
+    padding: 15px 25px;
+    background-color: rgba(221, 221, 221, 0.644);
+    border-radius: 15px;
+    width: 90%;
+    height: 90%;
+    box-sizing: border-box;
+}
+.form-login p label{
+    font-size: 0.8rem;
+    color: rgb(255, 255, 255);
+}
+.form-login p input{
+    text-align: center;
+    width: 45%;
+    border-radius: 10px;
+    border: none;
+    box-sizing: border-box;
+}
+.form-login p{
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    flex-direction: column;
+    gap: 5px;
+    box-sizing: border-box;
+}
+.boton-login-cuadro{
+    display: block;
+    width: 30%;
+    position: relative;
+    right: 0;
+    left: 0;
+    margin: 0 auto;
+    background-color: rgba(37, 30, 30, 0.678);
+    border: none;
+    outline: none;
+    color: white;
+    letter-spacing: 1px;
+    height: 25px;
+    border-radius: 15px;
+    box-sizing: border-box;
+}
+
+.errorlist{
+    display:none;
+}
+.mensaje-login{
+    font-size: 0.6rem;
+    color: red;
+}
+.mensaje-registrate{
+    font-size: 0.8rem;
+}
+.mensaje-registrate-link{
+    font-size: 0.8rem;
+    font-weight: bold;
+    color: rgb(80, 66, 168);
+}
+/* ----------------------- FIN LOGIN  ----------------------- */
+
+/* ----------------------- REGISTER  ----------------------- */
+.container-register{
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+}
+.titulo-register{
+    text-align: center;
+    font-size: 130%;
+}
+.formulario-register{
+    width: 90%;
+}
+.p-form{
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+}
+.p-form p{
+    width: 100%;
+    text-align: center;
+    margin: 8px 0;
+}
+.mensaje-register{
+    font-size: 0.6rem;
+}
+.container-register label {
+    display: none;
+}
+
+.container-register input{
+    width: 70%;
+    height: 30px;
+    border-radius: 5px;
+    border: none;
+    padding: 0;
+    text-align: center;
+}
+.container-register input::placeholder{
+    text-align: center;
+}
+.boton-signup{
+    width: 70%;
+    height: 30px;
+    border: none;
+    outline: none;
+    border-radius: 5px;
+    color: white;
+    background-color: rgb(82, 170, 82);
+    margin-top: 10px;
+}
+/* ----------------------- FIN REGISTER  ----------------------- */
+
+/* ----------------------- POST  ----------------------- */
+.container-post-form{
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+}
+.titulo-post-form{
+    text-align: center;
+    font-size: 130%;
+}
+.formulario-post{
+    width: 90%;
+}
+.p-form{
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+}
+.p-form p{
+    width: 100%;
+    text-align: center;
+    margin: 8px 0;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    gap: 3px;
+}
+
+.container-post-form input{
+    width: 70%;
+    height: 30px;
+    border-radius: 5px;
+    border: none;
+    padding: 0;
+    text-align: center;
+}
+
+.boton-post-form{
+    width: 70%;
+    height: 30px;
+    border: none;
+    outline: none;
+    border-radius: 5px;
+    color: white;
+    background-color: rgb(82, 170, 82);
+    margin-top: 10px;
+}
+/* ----------------------- FIN POST  ----------------------- */
+
+/* ----------------------- responsive  ----------------------- */
+@media (max-width: 1370px) {
+    .nav-flex{
+        gap: 50px;
+        padding: 10px 100px;
+    }
+   
+
+    .container-footer{
+        margin: 150px;
+    }
+    .container-footer p{
+        width: 92px;
+    }
+}
+
+@media (max-width: 1170px) {
+    .nav-flex{
+        gap: 10px;
+        padding: 10px 50px;
+    }
+}
+
+@media (max-width: 1015px) {
+    .nav-flex{
+        flex-direction: column;
+    }
+    .container-nav{
+        flex-direction: column;
+    }
+    .main-header{
+        height: auto;
+    }
+    .container-footer{
+        margin-top: 10px;
+        margin-bottom: 0;
+    }
+    footer{
+        flex-direction: column;
+        height: auto;
+    }
+}

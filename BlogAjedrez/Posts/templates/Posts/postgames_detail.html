@@ -10,9 +10,12 @@
         <img src="{{object.image.url}}" alt="" class="detalle-imagen">
     </picture>
     <p class="detalle-contenido">{{object.content}}</p>
-    <div class="detalle__container-botones">
-        <button class="boton-editar"><a href="{% url 'GamesUpdate' object.id %}">Editar</a></button>
-        <button class="boton-eliminar"><a href="{% url 'GamesDelete' object.id %}">Eliminar</a></button>
+    {% if object.author.id == request.user.id %}
+
+        <div class="detalle__container-botones">
+            <button class="boton-editar"><a href="{% url 'GamesUpdate' object.id %}">Editar</a></button>
+            <button class="boton-eliminar"><a href="{% url 'GamesDelete' object.id %}">Eliminar</a></button>
+        </div>
         
-    </div>
+    {% endif %}
 {% endblock %}
