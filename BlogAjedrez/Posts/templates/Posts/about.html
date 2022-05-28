@@ -3,6 +3,20 @@
 {% load static %}
 
 {% block contenidoQueCambia %}
-    <h3>Página sobre mi</h3>
-    <h5> Acá va la info sobre mi </h5>
+    <p class="detalle-titulo-about">Gabriel Monlezun</p>
+    <div class="divisor"></div>
+    <p class="detalle-contenido-about">
+        <picture class="detalle__container-imagen-about">
+            <img src="{% static 'Posts/assets/img-programador.jpg' %}" alt="" class="detalle-imagen-about">
+        </picture>
+        Soy un estudiante de la Licenciatura en Sistemas de Información de las Organizaciones en la Facultad de Ciencias Económicas - UBA (una materia faltante) y soy el creador de esta página. 
+        Además, soy un jugador amateur de ajedrez y un estudiante y entusiasta de la programación. Este juego despertó en mi una gran pasión desde que tenía aproximadamente 13 años y continúo jugando en la actualidad.
+        Este proyecto surgió como trabajo final en el curso de Python de CoderHouse, y la idea es mezcla ideal de mis dos pasiones. 
+
+        Soy un jugador aficionado de ajedrez y un entusiasta de la tecnología y la programación. Actualmente estoy finalizando la Licenciatura en Sistemas de Información de las Organizaciones en la Facultad de Ciencias Económicas - UBA.
+        Este proyecto surgió como trabajo final en el curso de Python de CoderHouse a cargo del profesor Franco di Martino y la tutoría de Valentín Arce.
+        El ajedrez despertó en mi una gran pasión desde que tenía aproximadamente 13 años y continuo jugando en la actualidad y vi en este proyecto la posibilidad de combinar estos dos hermosos mundos y transmitirlo a los visitantes de esta página.
+    </p>
+    <q class="fide"><i><a href="https://www.fide.com/">Gens Una Sumus</a></i></q>
+
 {% endblock %}

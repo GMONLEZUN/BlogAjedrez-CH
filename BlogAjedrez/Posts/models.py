@@ -2,13 +2,14 @@ from tkinter import CASCADE
 from django.utils.timezone import now
 from django.db import models
 from django.contrib.auth.models import User
+from ckeditor.fields import RichTextField
 
 # Create your models here.
 
 
 class PostBio(models.Model):
     title = models.CharField(max_length=255)
-    content = models.CharField(max_length=555)
+    content = RichTextField(blank=True, null=True)
     image = models.ImageField(upload_to='images_post',null=False,blank=False)
     date = models.DateTimeField(default=now, editable=False)
     author = models.ForeignKey(User, on_delete=models.CASCADE)
@@ -26,7 +27,7 @@ class PostGames(models.Model):
     title = models.CharField(max_length=255)
     title_players = models.CharField(max_length=255)
     result = models.IntegerField(choices=RESULT_CHOICES)
-    content = models.CharField(max_length=555)
+    content = RichTextField(blank=True, null=True)
     image = models.ImageField(upload_to='images_post',null=False,blank=False)
     date = models.DateTimeField(default=now, editable=False)
     author = models.ForeignKey(User, on_delete=models.CASCADE)
@@ -37,7 +38,7 @@ class PostGames(models.Model):
 class PostPuzzles(models.Model):
     title = models.CharField(max_length=255, verbose_name='Título')
     solution = models.CharField(max_length=255, verbose_name='Solución del problema')
-    content = models.CharField(max_length=555, verbose_name='Contenido adicional', null=True, blank=True)
+    content = RichTextField(verbose_name='Contenido adicional', null=True, blank=True)
     image = models.ImageField(upload_to='images_post',null=False,blank=False, verbose_name='Imágen del post')
     date = models.DateTimeField(default=now, editable=False)
     author = models.ForeignKey(User, on_delete=models.CASCADE)
