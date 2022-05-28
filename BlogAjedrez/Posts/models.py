@@ -44,4 +44,21 @@ class PostPuzzles(models.Model):
 
     def __str__(self):
         return f"{self.title} {self.date} {self.author}"
-   
+
+class CommentGames(models.Model):
+    post = models.ForeignKey(PostGames,related_name="commentsGames",on_delete=models.CASCADE)
+    commenter = models.ForeignKey(User, on_delete=models.CASCADE)
+    body = models.TextField()
+    date = models.DateTimeField(default=now, editable=False)
+    
+    def __str__(self):
+        return f"{self.post.title} {self.commenter} {self.date}"
+
+class CommentBio(models.Model):
+    post = models.ForeignKey(PostBio,related_name="commentsBio",on_delete=models.CASCADE)
+    commenter = models.ForeignKey(User, on_delete=models.CASCADE)
+    body = models.TextField()
+    date = models.DateTimeField(default=now, editable=False)
+    
+    def __str__(self):
+        return f"{self.post.title} {self.commenter} {self.date}"

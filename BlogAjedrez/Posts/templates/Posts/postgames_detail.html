@@ -4,7 +4,7 @@
 
 {% block contenidoQueCambia %}
 
-    <p class="detalle-user">Posted by user <i>{{object.date}}</i></p>
+    <p class="detalle-user">Posted by @{{object.author.username}} ><i> {{object.date}}</i></p>
     <p class="detalle-titulo">{{object.title}}</p>
     <picture class="detalle__container-imagen">
         <img src="{{object.image.url}}" alt="" class="detalle-imagen">
@@ -18,4 +18,34 @@
         </div>
         
     {% endif %}
+    <hr class="separador-comentarios">
+    <div class="sector-comentarios">
+        <div class="container_form-comentario">
+            <h3>Comentarios</h3>
+            <form action="{% url 'CommentsGames' postgames.id %}" method="POST" class="form-comentario">
+                {% csrf_token %}
+                <input type="text" name="body" placeholder="Escribe un comentario" class="input-comentario">
+            <button type="submit" class="boton-comentar"><i class="fa-solid fa-solid fa-play boton-comentar-icono"></i></button>
+            </form>
+        </div>
+        
+        <hr class="separador-comentarios2">
+        {% if not postgames.commentsGames.all %}
+            <p>No hay comentarios todavía...</p>
+        
+        {% else %}   
+            {% for comment in postgames.commentsGames.all|dictsortreversed:"date" %}
+                <div class="container-comentario">
+                    <div class="comentarista-fecha">
+                        <p class="comentario-autor">@{{comment.commenter}}</p> <p class="comentario-fecha">{{comment.date}}</p>
+                    </div>
+                    <p class="comentario">"<i>{{comment.body}}</i>"</p>
+                    {% if comment.commenter.id == request.user.id %}
+                        <p class="boton-eliminar-comentario"><a href="{% url 'CommentsGamesDelete' comment.id %}"><i class="fa-solid fa-trash-can eliminar-comentario"></i>Eliminar</a></p>
+                    {% endif %}
+                </div>
+                
+            {% endfor %}
+        {% endif %}
+    </div>
 {% endblock %}

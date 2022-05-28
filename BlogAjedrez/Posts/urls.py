@@ -1,6 +1,6 @@
 from django import views
 from django.urls import path
-from Posts.views import index, about, login_request,register,GamesList,GamesDetail,GamesCreation,GamesUpdate,GamesDelete, BioCreation,BioDelete,BioDetail,BioList,BioUpdate, PuzzlesCreation,PuzzlesDelete,PuzzlesDetail,PuzzlesUpdate, PuzzlesList
+from Posts.views import index, about, login_request,register,CommentsGamesDelete,CommentsBioDelete,GamesList,GamesDetail,GamesCreation,GamesUpdate,GamesDelete, CommentsGameCreation,CommentsBioCreation,BioCreation,BioDelete,BioDetail,BioList,BioUpdate, PuzzlesCreation,PuzzlesDelete,PuzzlesDetail,PuzzlesUpdate, PuzzlesList
 from django.contrib.auth.views import LogoutView
 
 
@@ -18,12 +18,18 @@ urlpatterns = [
     path('games/new/', GamesCreation.as_view(), name="GamesCreation"),
     path('games/edit/<pk>', GamesUpdate.as_view(), name="GamesUpdate"),
     path('games/delete/<pk>', GamesDelete.as_view(), name="GamesDelete"),
+    path('games/<pk>/comments', CommentsGameCreation.as_view(), name="CommentsGames"),
+    path('games/deletec/<pk>', CommentsGamesDelete.as_view(), name="CommentsGamesDelete"),
+    
 
     path('biography/list/', BioList.as_view(), name="BioList"),
     path('biography/<pk>', BioDetail.as_view(), name="BioDetail"),
     path('biography/new/', BioCreation.as_view(), name="BioCreation"),
     path('biography/edit/<pk>', BioUpdate.as_view(), name="BioUpdate"),
     path('biography/delete/<pk>', BioDelete.as_view(), name="BioDelete"),
+    path('biography/<pk>/comments', CommentsBioCreation.as_view(), name="CommentsBio"),
+    path('biography/deletec/<pk>', CommentsBioDelete.as_view(), name="CommentsBioDelete"),
+
 
     path('puzzles/list/', PuzzlesList.as_view(), name="PuzzlesList"),
     path('puzzles/<pk>', PuzzlesDetail.as_view(), name="PuzzlesDetail"),

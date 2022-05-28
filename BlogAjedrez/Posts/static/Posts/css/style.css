@@ -237,7 +237,18 @@ footer{
     /* border: 1px solid red; */
 
 }
-
+.separador-comentarios{
+    margin-top: 50px;
+    margin-bottom: 30px;
+    color: rgba(114, 116, 115, 0.575);
+    width: 85%;
+}
+.separador-comentarios2{
+    margin-top: 20px;
+    margin-bottom: 20px;
+    color: rgba(114, 116, 115, 0.315);
+    width: 98%;
+}
 /* ----------------------- FIN PRINCIPAL Y BANNERS ----------------------- */
 
 /* ----------------------- CONTENIDO QUE CAMBIA ----------------------- */
@@ -436,7 +447,7 @@ footer{
     text-decoration: none;
     color: inherit;
 }
-
+        /* ------------------------ vista de biografía ----------------------  */
         /* ------------------------ vista de biografía ---------------------- */
 
 .detalle__container-imagen-biografia{
@@ -643,6 +654,7 @@ footer{
                 object-fit: cover;
                 position: relative;
                 z-index: 50;
+                left: -20px;
             }
             .container-inicio-register{
                 display: flex;
@@ -653,6 +665,7 @@ footer{
                 color: white;
                 text-align: center;
                 margin: 0;
+                letter-spacing: 1px;
             }
             .container-inicio-login{
                 display: flex;
@@ -663,6 +676,7 @@ footer{
                 color: white;
                 text-align: center;
                 margin: 0;
+                letter-spacing: 1px;
             }
 
             .container-inicio div a {
@@ -879,6 +893,94 @@ footer{
     margin-top: 10px;
 }
 /* ----------------------- FIN POST  ----------------------- */
+/* ----------------------- COMMENTS  ----------------------- */
+.container_form-comentario{
+    margin-left:30px
+}
+.form-comentario{
+    display: flex;
+    flex-direction: row;
+    justify-content: flex-start;
+    align-items: center;
+}
+.input-comentario{
+    width: 300px;
+    height: 28px;
+    padding-left: 15px;
+    border: none;
+    border-top-right-radius: 15px;
+    border-bottom-right-radius: 15px;
+    border-top-left-radius: 5px;
+    border-bottom-left-radius: 5px;
+}
+.input-comentario::placeholder{
+    padding-left: 15px;
+}
+.input-comentario:focus{
+    box-shadow: -2px 2px 0px 0px rgb(126, 206, 146);
+    outline: none;
+}
+.boton-comentar-icono{
+    font-size: 1.2rem;
+    color: white;
+}
+.boton-comentar{
+    width: 35px;
+    height: 35px;
+    margin-left: 5px;
+    background-color: transparent;
+    border: none;
+    padding: 0;
+}
+.container-comentario{
+    display: flex;
+    flex-direction: column;
+    height: auto;
+    align-items: flex-start;
+    padding: 15px;
+    margin: 0 0 15px 15px;
+    border-radius: 15px;
+    background-color: rgba(29, 28, 28, 0.678);
+    border: 1px solid rgba(94, 86, 86, 0.993);
+}
+.comentarista-fecha{
+    display: flex;
+    flex-direction: row;
+    height: auto;
+    gap: 7px;
+    align-items: center;
+    margin: 0;
+    padding: 0;
+    justify-content: space-between;
+    width: 100%;
+}
+.comentario-fecha{
+    color:rgb(88, 88, 88);
+    font-size: 0.7rem;
+}
+.comentario-autor{
+    font-size: 0.7rem;
+}
+.boton-eliminar-comentario{
+    align-self: end;
+    font-size: 0.8rem;
+    color: rgb(88, 88, 88);
+    margin-right: 10px;
+}
+.boton-eliminar-comentario a{
+    color: inherit;
+    text-decoration: none;
+}
+.eliminar-comentario{
+    font-size: 0.8rem;
+    margin-right: 5px;
+}
+.comentario{
+    font-size: 0.9rem;
+    margin-left: 25px;
+}
+
+/* ----------------------- FIN COMMENTS  ----------------------- */
 
 /* ----------------------- responsive  ----------------------- */
 @media (max-width: 1370px) {

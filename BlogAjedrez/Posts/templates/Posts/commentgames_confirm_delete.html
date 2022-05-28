@@ -1,0 +1,12 @@
+{% extends "Posts/padre.html" %}
+
+{% load static %}
+
+{% block contenidoQueCambia %}
+    
+    <form method="post">{% csrf_token %}
+        estas seguro que deseas borrar el comentario "{{ object }}"?
+        <input type="submit" value="SI">
+    
+    </form>
+{% endblock %}

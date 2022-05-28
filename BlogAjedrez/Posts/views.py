@@ -3,7 +3,7 @@ from msilib.schema import Class
 from django.http import HttpResponse
 from django.shortcuts import render
 from Posts.forms import UserRegistrationForm,UserLoginForm
-from Posts.models import PostBio, PostGames, PostPuzzles
+from Posts.models import PostBio, PostGames, PostPuzzles,CommentGames,CommentBio
 from django.views.generic import ListView
 from django.views.generic.detail import DetailView
 from django.views.generic.edit import CreateView,UpdateView,DeleteView
@@ -28,6 +28,7 @@ def about(request):
 class BioList(ListView):
     model = PostBio
     template_name = "Posts/postbio_list.html"
+    queryset = PostBio.objects.order_by('-id')
 
 class BioDetail(DetailView):
     model = PostBio
@@ -70,6 +71,7 @@ def searchPost(request):
 class GamesList(ListView):
     model = PostGames
     template_name = "Posts/postgames_list.html"
+    queryset = PostGames.objects.order_by('-id')
 
 class GamesDetail(DetailView):
     model = PostGames
@@ -100,6 +102,7 @@ class GamesDelete(LoginRequiredMixin,DeleteView):
 class PuzzlesList(ListView):
     model = PostPuzzles
     template_name = "Posts/postpuzzles_list.html"
+    queryset = PostPuzzles.objects.order_by('-id')
 
 class PuzzlesDetail(DetailView):
     model = PostPuzzles
@@ -164,5 +167,37 @@ def register(request):
         form = UserRegistrationForm()
     return render(request,'Posts/registro.html',{'form':form})
 
-    # ------------------------------------------------------------------------------------------    LOGOUT    ----------------------------------------
+# ------------------------------------------------------------------------------------------    comments    ----------------------------------------
 
+class CommentsGameCreation(LoginRequiredMixin,CreateView):
+    model = CommentGames
+    fields = ['body']   
+    def form_valid(self,form):
+        form.instance.commenter=self.request.user
+        form.instance.post_id = self.kwargs['pk']
+        form.save()
+        return super().form_valid(form)
+    def get_success_url(self) -> str:
+        return reverse_lazy('GamesDetail', kwargs={'pk': self.object.post.id})
+
+
+class CommentsBioCreation(LoginRequiredMixin,CreateView):
+    model = CommentBio
+    fields = ['body']
+    def form_valid(self,form):
+        form.instance.commenter=self.request.user
+        form.instance.post_id = self.kwargs['pk']
+        form.save()
+        return super().form_valid(form)
+    def get_success_url(self) -> str:
+        return reverse_lazy('BioDetail', kwargs={'pk': self.object.post.id})
+
+class CommentsBioDelete(LoginRequiredMixin,DeleteView):
+    model = CommentBio
+    def get_success_url(self) -> str:
+        return reverse_lazy('BioDetail', kwargs={'pk': self.object.post.id})
+        
+class CommentsGamesDelete(LoginRequiredMixin,DeleteView):
+    model = CommentGames
+    def get_success_url(self) -> str:
+        return reverse_lazy('GamesDetail', kwargs={'pk': self.object.post.id})
