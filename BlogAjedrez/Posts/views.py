@@ -1,13 +1,13 @@
 
-from msilib.schema import Class
-from django.http import HttpResponse
-from django.shortcuts import render
+from ast import arg
+from django.http import HttpResponse, HttpResponseRedirect
+from django.shortcuts import render, get_object_or_404
 from Posts.forms import UserRegistrationForm,UserLoginForm
 from Posts.models import PostBio, PostGames, PostPuzzles,CommentGames,CommentBio
 from django.views.generic import ListView
 from django.views.generic.detail import DetailView
 from django.views.generic.edit import CreateView,UpdateView,DeleteView
-from django.urls import reverse_lazy
+from django.urls import reverse_lazy, reverse
 from django.contrib.auth.forms import AuthenticationForm, UserCreationForm
 from django.contrib.auth import login, logout, authenticate
 from django.contrib.auth.models import User
@@ -33,6 +33,13 @@ class BioList(ListView):
 class BioDetail(DetailView):
     model = PostBio
     template_name = "Posts/postbio_detail.html"
+
+    def get_context_data(self, *args,**kwargs):
+        context = super(BioDetail,self).get_context_data(**kwargs)
+        idpost = get_object_or_404(PostBio, id=self.kwargs['pk'])
+        total_likesbio = idpost.total_likesbio()
+        context["total_likesbio"] = total_likesbio
+        return context
 
 class BioCreation(LoginRequiredMixin,CreateView):
     model = PostBio
@@ -76,6 +83,13 @@ class GamesList(ListView):
 class GamesDetail(DetailView):
     model = PostGames
     template_name = "Posts/postgames_detail.html"
+    
+    def get_context_data(self, *args,**kwargs):
+        context = super(GamesDetail,self).get_context_data(**kwargs)
+        idpost = get_object_or_404(PostGames, id=self.kwargs['pk'])
+        total_likesgames = idpost.total_likesgames()
+        context["total_likesgames"] = total_likesgames
+        return context
 
 class GamesCreation(LoginRequiredMixin,CreateView):
     model = PostGames
@@ -107,6 +121,14 @@ class PuzzlesList(ListView):
 class PuzzlesDetail(DetailView):
     model = PostPuzzles
     template_name = "Posts/postpuzzles_detail.html"
+
+    def get_context_data(self, *args,**kwargs):
+        context = super(PuzzlesDetail,self).get_context_data(**kwargs)
+        idpost = get_object_or_404(PostPuzzles, id=self.kwargs['pk'])
+        total_likespuzzles = idpost.total_likespuzzles()
+        context["total_likespuzzles"] = total_likespuzzles
+        return context
+
 
 class PuzzlesCreation(LoginRequiredMixin,CreateView):
     model = PostPuzzles
@@ -201,3 +223,19 @@ class CommentsGamesDelete(LoginRequiredMixin,DeleteView):
     model = CommentGames
     def get_success_url(self) -> str:
         return reverse_lazy('GamesDetail', kwargs={'pk': self.object.post.id})
+
+
+def like_postgames(request, pk):
+    postgames = get_object_or_404(PostGames, id=request.POST.get('postgames_id'))
+    postgames.likes.add(request.user)
+    return HttpResponseRedirect(reverse('GamesDetail', args=[str(pk)]))
+
+def like_biography(request, pk):
+    postbio = get_object_or_404(PostBio, id=request.POST.get('postbio_id'))
+    postbio.likes.add(request.user)
+    return HttpResponseRedirect(reverse('BioDetail', args=[str(pk)]))
+
+def like_puzzles(request, pk):
+    postpuzzles = get_object_or_404(PostPuzzles, id=request.POST.get('postpuzzles_id'))
+    postpuzzles.likes.add(request.user)
+    return HttpResponseRedirect(reverse('PuzzlesDetail', args=[str(pk)]))

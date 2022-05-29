@@ -13,6 +13,9 @@ class PostBio(models.Model):
     image = models.ImageField(upload_to='images_post',null=False,blank=False)
     date = models.DateTimeField(default=now, editable=False)
     author = models.ForeignKey(User, on_delete=models.CASCADE)
+    likes = models.ManyToManyField(User, related_name="blog_postsBio")
+    def total_likesbio(self):
+        return self.likes.count()
 
     def __str__(self):
         return f"{self.title} {self.date} {self.author}"
@@ -31,6 +34,10 @@ class PostGames(models.Model):
     image = models.ImageField(upload_to='images_post',null=False,blank=False)
     date = models.DateTimeField(default=now, editable=False)
     author = models.ForeignKey(User, on_delete=models.CASCADE)
+    likes = models.ManyToManyField(User, related_name="blog_postsGames")
+
+    def total_likesgames(self):
+        return self.likes.count()
 
     def __str__(self):
         return f"{self.title} {self.date} {self.author}"
@@ -42,6 +49,10 @@ class PostPuzzles(models.Model):
     image = models.ImageField(upload_to='images_post',null=False,blank=False, verbose_name='Imágen del post')
     date = models.DateTimeField(default=now, editable=False)
     author = models.ForeignKey(User, on_delete=models.CASCADE)
+    likes = models.ManyToManyField(User, related_name="blog_postsPuzzles")
+
+    def total_likespuzzles(self):
+        return self.likes.count()
 
     def __str__(self):
         return f"{self.title} {self.date} {self.author}"

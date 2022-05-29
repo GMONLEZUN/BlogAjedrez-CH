@@ -424,7 +424,7 @@ footer{
 }
 .icono-editar{
     font-size: 1.2rem;
-    color: rgb(221, 221, 63);
+    color: rgb(105, 105, 90);
 }
 .contenedor-editdelete{
     display: flex;
@@ -976,7 +976,7 @@ footer{
     align-self: end;
     font-size: 0.8rem;
     color: rgb(88, 88, 88);
-    margin-right: 10px;
+    margin: 0 0 0 10px;
 }
 .boton-eliminar-comentario a{
     color: inherit;
@@ -992,6 +992,43 @@ footer{
 }
 
 /* ----------------------- FIN COMMENTS  ----------------------- */
+/* ----------------------- LIKES  ----------------------- */
+.container-likes{
+        display: flex;
+        flex-direction: row;
+        justify-content: space-between;
+        align-items: center;
+        gap: 2px;
+        padding: 0 50px 0 30px;    
+}
+.total-likes{
+    font-size: 1rem;
+    color: white;
+}
+.boton-like{
+    border: none;
+    outline: none;
+    background-color: transparent;
+    font-size: 0.9rem;
+}
+.like-icon{
+    color: rgb(102, 133, 168);
+    font-size: 1.5rem;
+}
+.container-like-button{
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+    justify-content: center;
+}
+.container-likesPuzzles{
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+    justify-content: end;
+}
+/* ----------------------- FIN LIKES  ----------------------- */
+
 /* -----------------------  ABOUT  -----------------------*/
 .detalle-titulo-about{
     text-align: end;
