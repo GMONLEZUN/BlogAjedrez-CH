@@ -1,0 +1,51 @@
+{% extends "Posts/padre.html" %}
+
+{% load static %}
+
+{% block contenidoQueCambia %}
+<h3 class="titulo-categoria">Problemas</h3>
+    <div class="divisor"></div>
+    {% if bio %}
+
+        {% for item in bio %}
+            <div class="container-post">
+                <div class="container-post__userTitle">
+                    <p class="container-post__title">{{item.title}}</p><span class="fecha-lista">posted by @{{item.author.username}} > {{item.date}}</span>
+                </div>
+                <button class="boton-ver"><a href="{% url 'BioDetail' item.id %}"><i class="fa-solid fa-eye icon-eye"></i></a></button>
+            </div>
+        {% endfor %}
+
+    {% endif %}
+
+    {% if games %}
+        {% for item in games %}
+            <div class="container-post">
+                <div class="container-post__userTitle">
+                    <p class="container-post__title">{{item.title}}</p><span class="fecha-lista">posted by @{{item.author.username}} > {{item.date}}</span>
+                </div>
+                <button class="boton-ver"><a href="{% url 'BioDetail' item.id %}"><i class="fa-solid fa-eye icon-eye"></i></a></button>
+            </div>
+        {% endfor %}
+    {% endif %}
+
+
+    {% if puzzles %}
+        {% for item in puzzles %}
+            <div class="container-post">
+                <div class="container-post__userTitle">
+                    <p class="container-post__title">{{item.title}}</p><span class="fecha-lista">posted by @{{item.author.username}} > {{item.date}}</span>
+                </div>
+                <button class="boton-ver"><a href="{% url 'PuzzleDetail' item.id %}"><i class="fa-solid fa-eye icon-eye"></i></a></button>
+            </div>
+        {% endfor %}
+    {% endif %}
+    
+    {% if not puzzles and not games and not bio %}
+        <p> No se encontraron resultados </p>
+    {% endif %}  
+
+    {% if respuesta %}
+        <p> {{respuesta}} </p>
+    {% endif %}
+{% endblock %}

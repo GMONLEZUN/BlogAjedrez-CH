@@ -26,23 +26,22 @@
                 {% if request.user.is_authenticated %}
                     <li class="usuario"><span class="arroba"></i>@</span>{{user}}<i class="fa-solid fa-circle online"></i></li>
                     <li><a href="{% url 'Logout' %}" class="logout-text"><i class="fa-solid fa-power-off logout"></i>Logout</a></li>
-                    <li><a href=""><i class="fa-solid fa-sliders settings"></i></a></li>
-                    <li><a href="{% url 'Inbox' %}"><i class="fa-solid fa-message messages"></i></a></li>
+                    <li><a href=""><i class="fa-solid fa-sliders settings" title="Configuración"></i></a></li>
+                    <li><a href="{% url 'Inbox' %}"><i class="fa-solid fa-message messages" title="Mensajes"></i></a></li>
                 {% endif %}
                 {% if not request.user.is_authenticated %}
                     <li><a href="{% url 'Login' %}" class="login-text"><i class="fa-solid fa-power-off login"></i>Login</a></li>
-                    <li><a href="{% url 'Register' %}"class="register-text">Registrate</a></li>
+                    <li><a href="{% url 'Register' %}"class="register-text">Regístrate</a></li>
                 {% endif %}
                 
             </ul>
         </nav>
     </header>
+  
     <div class="container">
 
         <section class="banner-right">
-            <article class="publicidad">
 
-            </article>
         </section>
 
         <section class="contenidoQueCambia">
@@ -52,7 +51,16 @@
         </section>
 
         <section class="banner-left">
-
+            
+            <div class="container-buscar">
+                <form action="{% url 'Search' %}" method="GET" class="form-buscar">
+                        <input type="text" name="input-busqueda" id="" class="input-buscar" placeholder="Buscar">
+                        <button type="submit" class="boton-buscar"><i class="fa-solid fa-magnifying-glass icono-buscar"></i></button>
+                </form>
+            <picture>
+                <img src="{% static 'Posts/assets/DGT-Centaur-Banner-scaled.jpg' %}" alt="" class="img-publicidad">
+                <p class="publicidad-texto">[Publicidad]</p>
+            </picture>
         </section>
     </div>
     

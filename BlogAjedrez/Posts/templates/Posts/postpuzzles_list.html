@@ -3,6 +3,14 @@
 {% load static %}
 
 {% block contenidoQueCambia %}
+    {% if messages %}
+        {% for message in messages %}
+            <div class="sector-alertas">
+            <span class="closebtn" onclick="this.parentElement.style.display='none';">&times;</span>
+                {{ message }}
+            </div>
+        {% endfor %}
+    {% endif %}
     <h3 class="titulo-categoria">Problemas</h3>
     <div class="divisor"></div>
     <button class="boton-newpost"><a href="{% url 'PuzzlesCreation' %}">Nuevo Post</a></button>

@@ -3,6 +3,14 @@
 {% load static %}
 
 {% block contenidoQueCambia %}
+    {% if messages %}
+        {% for message in messages %}
+            <div class="sector-alertas">
+            <span class="closebtn" onclick="this.parentElement.style.display='none';">&times;</span>
+                {{ message }}
+            </div>
+        {% endfor %}
+    {% endif %}
     <section class="container-inicio">
         <!-- <h3>Chess.py</h3> -->
         <div class="container-inicio-problemas"><p class="inicio-problemas-texto"><a href="{% url 'PuzzlesList' %}">Problemas</a></p><img src="{% static 'Posts/assets/img-puzzles.png' %}" alt="" class="inicio-problemas-img"></div>
@@ -10,9 +18,20 @@
         <div class="container-inicio-partidas"><p class="inicio-partidas-texto"><a href="{% url 'GamesList' %}">Partidas</a></p><img src="{% static 'Posts/assets/img-partidas.jpg' %}" alt="" class="inicio-partidas-img"></div>
         <div class="container-inicio-about"><img src="{% static 'Posts/assets/img-about.jpg' %}" alt="" class="inicio-about-img"><p class="inicio-about-texto"><a href="{% url 'About' %}">Sobre mí</a></p></div>
         <div class="container-register-login">
-            <div class="container-inicio-register"><p><a href="{% url 'Register' %}">Registrate</a></p></div>
+            
+            <div class="container-inicio-register">
+                {% if not request.user.is_authenticated %}
+                <p><a href="{% url 'Register' %}">Regístrate</a></p>
+                {% else %}
+                <p>¡Bienvenidos! chess.py</p>
+                {% endif %}
+            </div>
             <img src="{% static 'Posts/assets/logo.png' %}" alt="" class="inicio-img-logo">
-            <div class="container-inicio-login"><p><a href="{% url 'Login' %}">Login</a></p></div>
+            <div class="container-inicio-login">
+                {% if not request.user.is_authenticated %}
+                <p><a href="{% url 'Login' %}">Login</a></p>
+                {% endif %}
+            </div>
         </div>
     </section>
 

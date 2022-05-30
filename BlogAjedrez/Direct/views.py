@@ -1,6 +1,3 @@
-from cmath import log
-from multiprocessing import context
-from django.http import HttpResponseBadRequest, HttpResponseRedirect
 from django.shortcuts import redirect, render, get_list_or_404
 from django.urls import reverse_lazy, reverse
 from .models import Message
@@ -8,6 +5,7 @@ from django.contrib.auth.decorators import login_required
 from django.contrib.auth.models import User
 from django.views.generic.edit import CreateView,UpdateView,DeleteView
 from django.contrib.auth.mixins import LoginRequiredMixin
+from django.contrib import messages
 
 # Create your views here.
 
@@ -27,7 +25,8 @@ class NewMessage(LoginRequiredMixin,CreateView):
         form.save()
         return super().form_valid(form)
     def get_success_url(self) -> str:
-        return reverse_lazy('Inbox')
+        messages.success(self.request, ('Mensaje enviado con éxito!'))
+        return reverse_lazy('Index')
 
 @login_required
 def Inbox(request):

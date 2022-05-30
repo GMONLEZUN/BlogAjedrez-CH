@@ -11,6 +11,7 @@ from django.contrib.auth.forms import AuthenticationForm, UserCreationForm
 from django.contrib.auth import login, logout, authenticate
 from django.contrib.auth.models import User
 from django.contrib.auth.mixins import LoginRequiredMixin
+from django.contrib import messages
 
 # Create your views here.
 
@@ -46,16 +47,21 @@ class BioCreation(LoginRequiredMixin,CreateView):
     fields = ['title', 'content','image']
     def form_valid(self,form):
         form.instance.author=self.request.user
+        messages.success(self.request, "Post creado con éxito!")
         return super().form_valid(form)
 
 class BioUpdate(LoginRequiredMixin,UpdateView):
     model = PostBio
     success_url = reverse_lazy('BioList')
     fields = ['title', 'content','image']
+    def form_valid(self, form):
+      messages.success(self.request, "Post editado con éxito!")
+      return super().form_valid(form)
 
 class BioDelete(LoginRequiredMixin,DeleteView):
     model = PostBio
     success_url = reverse_lazy('BioList')
+    
 
 
 
@@ -96,6 +102,7 @@ class GamesCreation(LoginRequiredMixin,CreateView):
     fields = ['title','title_players','result', 'content','image']
     def form_valid(self,form):
         form.instance.author=self.request.user
+        messages.success(self.request, "Post creado con éxito!")
         return super().form_valid(form)
    
 
@@ -103,6 +110,9 @@ class GamesUpdate(LoginRequiredMixin,UpdateView):
     model = PostGames
     success_url = reverse_lazy('GamesList')
     fields = ['title','title_players', 'result', 'content','image']
+    def form_valid(self, form):
+      messages.success(self.request, "Post editado con éxito!")
+      return super().form_valid(form)
 
 
 class GamesDelete(LoginRequiredMixin,DeleteView):
@@ -135,16 +145,21 @@ class PuzzlesCreation(LoginRequiredMixin,CreateView):
     fields = ['title','solution','content','image']
     def form_valid(self,form):
         form.instance.author=self.request.user
+        messages.success(self.request, "Post creado con éxito!")
         return super().form_valid(form)
 
 class PuzzlesUpdate(LoginRequiredMixin,UpdateView):
     model = PostPuzzles
     success_url = reverse_lazy('PuzzlesList')
     fields = ['title','solution','content','image']
+    def form_valid(self, form):
+      messages.success(self.request, "Post editado con éxito!")
+      return super().form_valid(form)
 
 class PuzzlesDelete(LoginRequiredMixin,DeleteView):
     model = PostPuzzles
     success_url = reverse_lazy('PuzzlesList')
+    
 
 
 # ------------------------------------------------------------------------------------------    LOGIN    ----------------------------------------
@@ -182,6 +197,7 @@ def register(request):
         if form.is_valid():
             username = form.cleaned_data['username']
             form.save()
+            messages.success(request, ('Usuario registrado exitosamente!'))
             return render(request,'Posts/index.html')
             # else caso error
     else:
@@ -240,4 +256,17 @@ def like_puzzles(request, pk):
     return HttpResponseRedirect(reverse('PuzzlesDetail', args=[str(pk)]))
 
 
+# ------------------------------------------------------------------------------------------    search    ----------------------------------------
 
+def Search(request):
+    if request.GET["input-busqueda"]:
+        input = request.GET["input-busqueda"]
+        bio = PostBio.objects.filter(title__icontains=input)
+        games = PostGames.objects.filter(title__icontains=input)
+        puzzles = PostPuzzles.objects.filter(title__icontains=input)
+        
+        return render(request,"Posts/search.html", {"bio":bio,"games":games,"puzzles":puzzles})
+
+    else:
+        respuesta = "No enviaste datos"
+        return render(request,"Posts/search.html", {"respuesta":respuesta})

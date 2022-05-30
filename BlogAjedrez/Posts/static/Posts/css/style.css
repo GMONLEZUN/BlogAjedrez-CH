@@ -204,9 +204,9 @@ footer{
     position: relative;
     display: flex;
     flex-direction: row;
-    justify-content: space-between;
-    margin-top: 25px;
+    justify-content: center;
     min-height: 79vh;
+    min-width: 706px;
     width: 70%;
     margin: 25px auto 10px;
     z-index: 1;
@@ -222,15 +222,17 @@ footer{
     display: flex;
     flex-direction: column;
     justify-content: center;
+    display: none;
     /* border: 1px solid red; */
 }
 
 .banner-left{
     position: relative;
-    width: 5%;
+    min-width: 175px;
+    width: 13%;
     right: 0;
-    margin: 0 auto;
-    padding: 10px;
+    margin: 0;
+    padding: 10px 0;
     display: flex;
     flex-direction: column;
     justify-content: center;
@@ -264,7 +266,7 @@ footer{
     z-index: 10;
     right: 0;
     left: 0;
-    margin: 0 auto;
+    margin: 0 30px;
 }
 .titulo-categoria{
     font-size: 1.7rem;
@@ -648,16 +650,16 @@ footer{
             }
             /* fin about-------------------------------------------------------------- */
             .container-register-login{
-                height: 90px;
-                margin-top: 60px !important;
+                height: 65px;
+                margin-top: 150px !important;
                 display: flex;
                 flex-direction: row;
                 justify-content: space-between;
                 align-items: center;
                 padding: 10px 35px;
                 box-sizing: border-box;
-                background: rgb(33,69,117);
-                background: linear-gradient(93deg, rgba(33,69,117,1) 0%, rgba(38,82,143,1) 43%, rgba(80,88,98,1) 53%, rgba(24,25,27,1) 100%);
+                background: rgb(24,25,27);
+                background: linear-gradient(93deg, rgba(24,25,27,1) 0%, rgba(80,88,98,1) 43%, rgba(128,133,139,1) 53%, rgba(233,236,241,1) 100%);
             }
             .inicio-img-logo{
                 width: 300px;
@@ -665,7 +667,7 @@ footer{
                 object-fit: cover;
                 position: relative;
                 z-index: 50;
-                left: -20px;
+                left: -30px;
             }
             .container-inicio-register{
                 display: flex;
@@ -684,9 +686,9 @@ footer{
                 align-items: center;
                 font-size: 140%;
                 font-weight: bold;
-                color: white;
+                color: rgb(75, 69, 69);
                 text-align: center;
-                margin: 0;
+                margin: 0px 0 0 -25px;
                 letter-spacing: 1px;
             }
 
@@ -1126,6 +1128,77 @@ footer{
     padding: 5px;
 }
 /* -----------------------  FIN MENSAJES  ----------------------- */
+/* -----------------------  ALERTAS  ----------------------- */
+
+.sector-alertas {
+    padding: 10px 20px;
+    background-color: #318a4c;
+    color: white;
+    border-radius: 7px;
+  }
+  
+  .closebtn {
+    margin-left: 15px;
+    color: white;
+    font-weight: bold;
+    float: right;
+    font-size: 22px;
+    line-height: 20px;
+    cursor: pointer;
+    transition: 0.3s;
+  }
+  
+  .closebtn:hover {
+    color: rgb(65, 61, 61);
+  }
+
+
+/* -----------------------  FIN ALERTAS  ----------------------- */
+/* -----------------------  Search + publicidad  ----------------------- */
+
+.img-publicidad{
+     width: 100%;
+     object-fit: cover;
+     border-radius: 5px;
+ }
+ .publicidad-texto{
+     color: rgb(156, 156, 156);
+     font-size: 0.6rem;
+     text-align: center;
+ }
+ .container-buscar{
+     width: 100%;
+ }
+ .form-buscar{
+    width: 100%;
+    display: flex;
+    flex-direction: row;
+    justify-content: center;
+    align-items: center;
+    margin-bottom: 50px;
+ }
+ .input-buscar{
+     width: 80%;
+     border: none;
+     border-radius: 5px;
+     margin-right: 3px;
+     padding-left: 10px;
+     height: 25px;
+ }
+
+ .boton-buscar{
+     background-color: transparent;
+     font-size: 0.8rem;
+     color: white;
+     border: none;
+     outline: none;
+ }
+ .icono-buscar{
+    font-size: 0.8rem;
+    color: white;
+ }
+
+/* -----------------------  FIN Search + publicidad  ----------------------- */
 
 /* ----------------------- responsive  ----------------------- */
 @media (max-width: 1370px) {
@@ -1150,7 +1223,7 @@ footer{
     }
 }
 
-@media (max-width: 1015px) {
+@media (max-width: 1030px) {
     .nav-flex{
         flex-direction: column;
     }
@@ -1167,5 +1240,31 @@ footer{
     footer{
         flex-direction: column;
         height: auto;
+    }
+    .container{
+        flex-direction: column-reverse;
+    }
+    .img-publicidad{
+        display: none;
+    }
+    .publicidad-texto{
+        display: none;
+    }
+    .container-buscar{
+        right: 0;
+        left: 0;
+        margin: 0 auto;
+    }
+    .banner-left{
+        width: 50%;
+        min-width: 650px;
+        flex-direction: row;
+        justify-content: center;
+        /* border: 1px solid red; */
+        width: 100%;
+        position: relative;
+        right: 0;
+        left: 0;
+        margin: 0 30px;
     }
 }

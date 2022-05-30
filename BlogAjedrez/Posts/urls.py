@@ -1,6 +1,6 @@
 from django import views
 from django.urls import path
-from Posts.views import index, about, login_request,register,like_postgames,like_puzzles,like_biography,CommentsGamesDelete,CommentsBioDelete,GamesList,GamesDetail,GamesCreation,GamesUpdate,GamesDelete, CommentsGameCreation,CommentsBioCreation,BioCreation,BioDelete,BioDetail,BioList,BioUpdate, PuzzlesCreation,PuzzlesDelete,PuzzlesDetail,PuzzlesUpdate, PuzzlesList
+from Posts.views import index, about, login_request,register,like_postgames,like_puzzles,like_biography,Search,CommentsGamesDelete,CommentsBioDelete,GamesList,GamesDetail,GamesCreation,GamesUpdate,GamesDelete, CommentsGameCreation,CommentsBioCreation,BioCreation,BioDelete,BioDetail,BioList,BioUpdate, PuzzlesCreation,PuzzlesDelete,PuzzlesDetail,PuzzlesUpdate, PuzzlesList
 from django.contrib.auth.views import LogoutView
 
 
@@ -39,7 +39,8 @@ urlpatterns = [
     path('puzzles/edit/<pk>', PuzzlesUpdate.as_view(), name="PuzzlesUpdate"),
     path('puzzles/delete/<pk>', PuzzlesDelete.as_view(), name="PuzzlesDelete"),
     path('like_postpuzzles/<pk>', like_puzzles, name="like_postpuzzles"),
-
+    
+    path('search', Search, name="Search"),
 
 ]
 
