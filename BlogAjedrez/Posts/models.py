@@ -1,4 +1,3 @@
-from tkinter import CASCADE
 from django.utils.timezone import now
 from django.db import models
 from django.contrib.auth.models import User
@@ -74,3 +73,4 @@ class CommentBio(models.Model):
     
     def __str__(self):
         return f"{self.post.title} {self.commenter} {self.date}"
+

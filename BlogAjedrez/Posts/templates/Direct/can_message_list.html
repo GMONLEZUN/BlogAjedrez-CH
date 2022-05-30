@@ -1,0 +1,21 @@
+{% extends "Posts/padre.html" %}
+
+{% load static %}
+
+{% block contenidoQueCambia %}
+<h3>Usuarios</h3>
+<div class="divisor"></div>
+<div class="formulario-mensaje-persona">
+    {% for person in people %}
+    {% if person != request.user %}
+        <form method="POST" action="{% url 'NewMessage' person.id %}" >{% csrf_token %}
+            <span class="nombre-mensaje-persona">{{ person }} ></span> 
+            <input type="text" name="body" class="input-mensaje-persona">
+            <button type="submit" class="boton-mensaje-persona">Enviar<i class="fa-solid fa-paper-plane icono-mensaje-enviar"></i></button>
+        </form>
+        <hr class="separador-comentarios2">
+    {% endif %}
+    {% endfor %}
+</div>
+
+{% endblock %}

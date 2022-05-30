@@ -1,5 +1,4 @@
 
-from ast import arg
 from django.http import HttpResponse, HttpResponseRedirect
 from django.shortcuts import render, get_object_or_404
 from Posts.forms import UserRegistrationForm,UserLoginForm
@@ -239,3 +238,6 @@ def like_puzzles(request, pk):
     postpuzzles = get_object_or_404(PostPuzzles, id=request.POST.get('postpuzzles_id'))
     postpuzzles.likes.add(request.user)
     return HttpResponseRedirect(reverse('PuzzlesDetail', args=[str(pk)]))
+
+
+

@@ -39,5 +39,7 @@ urlpatterns = [
     path('puzzles/edit/<pk>', PuzzlesUpdate.as_view(), name="PuzzlesUpdate"),
     path('puzzles/delete/<pk>', PuzzlesDelete.as_view(), name="PuzzlesDelete"),
     path('like_postpuzzles/<pk>', like_puzzles, name="like_postpuzzles"),
+
+
 ]
 

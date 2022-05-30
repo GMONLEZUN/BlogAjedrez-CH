@@ -1,0 +1,22 @@
+{% extends "Posts/padre.html" %}
+
+{% load static %}
+
+{% block contenidoQueCambia %}
+    <h3 class="titulo-inbox">Inbox</h3>
+    <button class="boton-mensaje"><a href="{% url 'PeopleWeCanMessage' %}">Nuevo mensaje</a></button>
+    <div class="divisor"></div>
+    <h3 class="titulo-comentarios">Mensajes recibidos</h3>
+    {% for message in messages %}
+        <div class="container-comentario">
+            <div class="comentarista-fecha">
+                <p class="comentario-autor">@{{ message.sender }}</p><p class="comentario-fecha">{{ message.date }}</p>
+            </div>
+            <p class="comentario">"<i>{{message.body}}</i>"</p>
+        </div>
+    {% empty %}
+        <h4>No hay mensajes</h4>
+
+    {% endfor %}
+
+{% endblock %}

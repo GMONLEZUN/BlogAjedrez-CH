@@ -23,6 +23,7 @@ from BlogAjedrez.views import index
 urlpatterns = [
     path('admin/', admin.site.urls),
     path('Posts/', include('Posts.urls')),
+    path('Direct/', include('Direct.urls')),
     path('', index),
 ]
 
