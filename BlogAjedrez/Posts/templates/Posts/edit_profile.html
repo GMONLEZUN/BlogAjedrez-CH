@@ -1,0 +1,18 @@
+{% extends "Posts/padre.html" %}
+
+{% load static %}
+
+{% block contenidoQueCambia %}
+    
+    <div class="container-post-form">
+        <h1 class="titulo-post-form">Editar perfil {{user}}</h1>{% if not image %} <img src="{% static '/Posts/assets/pawn.png' %}" alt="" class="img-avatar">{% else %}<img src="{{image}}" alt="" class="img-avatar">{% endif %} <a href="{% url 'ModifyAvatar' %}">Editar avatar</a>
+        <div class="divisor"></div>
+        <form action="{% url 'EditProfile' %}" method="POST" enctype="multipart/form-data" class="formulario-post">{% csrf_token %}
+            <div class="p-form">
+                {{form.as_p}}
+                <button type="submit" class="boton-post-form">Guardar</button>
+            </div>
+        </form>
+    </div>
+
+{% endblock %}

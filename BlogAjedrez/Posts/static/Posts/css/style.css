@@ -1127,6 +1127,15 @@ footer{
     color: white;
     padding: 5px;
 }
+.img-avatar{
+    width: 80px;
+    height: 80px;
+    border-radius: 50%;
+    object-fit:cover;
+    background-color: white;
+    border: 2px solid goldenrod;
+    margin-bottom: 15px;
+}
 /* -----------------------  FIN MENSAJES  ----------------------- */
 /* -----------------------  ALERTAS  ----------------------- */
 

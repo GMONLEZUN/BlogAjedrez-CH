@@ -1,0 +1,18 @@
+{% extends "Posts/padre.html" %}
+
+{% load static %}
+
+{% block contenidoQueCambia %}
+    
+    <div class="container-post-form">
+        <h1 class="titulo-post-form">Editar avatar {{user}}</h1>
+        <div class="divisor"></div>
+        <form action="{% url 'ModifyAvatar' %}" method="POST" enctype="multipart/form-data" class="formulario-post">{% csrf_token %}
+            <div class="p-form">
+                <p>{{formAvatar.as_p}}</p>
+                <button type="submit" class="boton-post-form">Guardar</button>
+            </div>
+        </form>
+    </div>
+
+{% endblock %}

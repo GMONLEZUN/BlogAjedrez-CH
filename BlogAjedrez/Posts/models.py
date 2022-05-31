@@ -1,3 +1,5 @@
+from email.policy import default
+from tkinter import CASCADE
 from django.utils.timezone import now
 from django.db import models
 from django.contrib.auth.models import User
@@ -74,3 +76,6 @@ class CommentBio(models.Model):
     def __str__(self):
         return f"{self.post.title} {self.commenter} {self.date}"
 
+class Avatar(models.Model):
+    user = models.ForeignKey(User, on_delete=models.CASCADE)
+    image = models.ImageField(upload_to='avatars', null=True, blank=True)

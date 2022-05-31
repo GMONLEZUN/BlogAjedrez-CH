@@ -1,8 +1,8 @@
 
 from django.http import HttpResponse, HttpResponseRedirect
 from django.shortcuts import render, get_object_or_404
-from Posts.forms import UserRegistrationForm,UserLoginForm
-from Posts.models import PostBio, PostGames, PostPuzzles,CommentGames,CommentBio
+from Posts.forms import UserRegistrationForm,UserLoginForm, UserEditForm, AvatarForm
+from Posts.models import Avatar, PostBio, PostGames, PostPuzzles,CommentGames,CommentBio
 from django.views.generic import ListView
 from django.views.generic.detail import DetailView
 from django.views.generic.edit import CreateView,UpdateView,DeleteView
@@ -12,6 +12,8 @@ from django.contrib.auth import login, logout, authenticate
 from django.contrib.auth.models import User
 from django.contrib.auth.mixins import LoginRequiredMixin
 from django.contrib import messages
+from django.contrib.auth.decorators import login_required
+from django.contrib.auth import update_session_auth_hash
 
 # Create your views here.
 
@@ -270,3 +272,42 @@ def Search(request):
     else:
         respuesta = "No enviaste datos"
         return render(request,"Posts/search.html", {"respuesta":respuesta})
+
+# ------------------------------------------------------------------------------------------    editar perfil    ----------------------------------------
+@login_required
+def EditProfile(request):
+    user=request.user
+    avatar = Avatar.objects.filter(user=request.user.id)
+    if request.method == 'POST':
+        form=UserEditForm(request.POST, instance=user)
+        if form.is_valid():
+            info=form.cleaned_data
+            user.email=info['email']
+            user.set_password(info['password1'])
+            user.save()
+            update_session_auth_hash(request, user)
+            return render(request, 'Posts/index.html')
+    else:
+        form=UserEditForm(instance=user)
+        if avatar:
+            avatar_url=avatar[0].image.url
+            return render(request, 'Posts/edit_profile.html', {'form':form, 'user':user.username, "image":avatar_url})
+    return render(request, 'Posts/edit_profile.html', {'form':form, 'user':user.username})
+
+
+@login_required
+def ModifyAvatar(request):
+    user = User.objects.get(username = request.user)
+    if request.method == 'POST':
+        formAvatar = AvatarForm(request.POST, request.FILES)
+        if formAvatar.is_valid():
+            avatarOld = Avatar.objects.filter(user=request.user)
+            if(avatarOld):
+                avatarOld.delete()
+            avatar = Avatar(user=user,image=formAvatar.cleaned_data['image'])
+            avatar.save()
+            messages.success(request, ('Avatar modificado exitosamente!'))
+            return render(request, 'Posts/index.html', {'user':user})
+    else:
+        formAvatar = AvatarForm()
+    return render(request, 'Posts/edit_avatar.html',{'formAvatar':formAvatar,'user':user})

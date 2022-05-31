@@ -26,7 +26,7 @@
                 {% if request.user.is_authenticated %}
                     <li class="usuario"><span class="arroba"></i>@</span>{{user}}<i class="fa-solid fa-circle online"></i></li>
                     <li><a href="{% url 'Logout' %}" class="logout-text"><i class="fa-solid fa-power-off logout"></i>Logout</a></li>
-                    <li><a href=""><i class="fa-solid fa-sliders settings" title="Configuración"></i></a></li>
+                    <li><a href="{% url 'EditProfile' %}"><i class="fa-solid fa-sliders settings" title="Configuración"></i></a></li>
                     <li><a href="{% url 'Inbox' %}"><i class="fa-solid fa-message messages" title="Mensajes"></i></a></li>
                 {% endif %}
                 {% if not request.user.is_authenticated %}
