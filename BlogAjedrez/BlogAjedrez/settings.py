@@ -137,9 +137,10 @@ LOGIN_URL = '/Posts/login'
 
 import dj_database_url
 db_from_env = dj_database_url.config(conn_max_age=500)
+
 DATABASES['default'].update(db_from_env)
 
-STATICFILES_DIRS = ( os.path.join(BASE_DIR, 'static') )
+STATICFILES_DIRS = ( os.path.join(BASE_DIR, 'static'),)
 
 STATICFILES_STORAGE = 'whitenoise.storage.CompressedManifestStaticFilesStorage'
 
