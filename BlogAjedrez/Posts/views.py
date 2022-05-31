@@ -285,8 +285,12 @@ def EditProfile(request):
             user.email=info['email']
             user.set_password(info['password1'])
             user.save()
+            messages.success(request, ('Perfil modificado exitosamente!'))
             update_session_auth_hash(request, user)
             return render(request, 'Posts/index.html')
+        else:
+            mensaje_error= "El formulario inválido, revisar la contraseña"
+            return render(request, 'Posts/edit_profile.html', {'form':form, 'user':user.username, 'mensaje':mensaje_error})
     else:
         form=UserEditForm(instance=user)
         if avatar:
