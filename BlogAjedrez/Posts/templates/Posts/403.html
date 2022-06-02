@@ -1,0 +1,12 @@
+{% extends "Posts/padre.html" %}
+
+{% load static %}
+
+{% block contenidoQueCambia %}
+<h2>Ups! no encontramos esta página</h2>
+<h4 class="subtitulo-error">[ Error 403 ]</h4>
+<a href="{% url 'Index' %}" class="volver-inicio"><i class="fa-solid fa-house"></i> Volver a inicio</a>
+<hr class="separador-comentarios">
+<img src="{% static 'Posts/assets/The_Chess_Players.jpg' %}" alt="" class="error-img">
+
+{% endblock %}

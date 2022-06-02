@@ -1,4 +1,4 @@
-from django import views
+from cgitb import handler
 from django.urls import path
 from Posts.views import ModifyAvatar,EditProfile, index, about, login_request,register,like_postgames,like_puzzles,like_biography,Search,CommentsGamesDelete,CommentsBioDelete,GamesList,GamesDetail,GamesCreation,GamesUpdate,GamesDelete, CommentsGameCreation,CommentsBioCreation,BioCreation,BioDelete,BioDetail,BioList,BioUpdate, PuzzlesCreation,PuzzlesDelete,PuzzlesDetail,PuzzlesUpdate, PuzzlesList
 from django.contrib.auth.views import LogoutView

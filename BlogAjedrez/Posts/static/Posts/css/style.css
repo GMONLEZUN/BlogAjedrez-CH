@@ -1209,6 +1209,22 @@ footer{
 
 /* -----------------------  FIN Search + publicidad  ----------------------- */
 
+.subtitulo-error{
+    text-align: end;
+}
+.error-img{
+    width: 100%;
+    height: auto;
+    object-fit: cover;
+}
+.volver-inicio{
+    color: white;
+    text-decoration: none;
+}
+.volver-inicio a {
+    color: inherit;
+    text-decoration: none;
+}
 /* ----------------------- responsive  ----------------------- */
 @media (max-width: 1370px) {
     .nav-flex{
@@ -1251,6 +1267,8 @@ footer{
         height: auto;
     }
     .container{
+        min-width: 100%;
+        max-width: 100%;
         flex-direction: column-reverse;
     }
     .img-publicidad{
@@ -1265,8 +1283,8 @@ footer{
         margin: 0 auto;
     }
     .banner-left{
-        width: 50%;
-        min-width: 650px;
+        max-width: 100%;
+        min-width: 100%;
         flex-direction: row;
         justify-content: center;
         /* border: 1px solid red; */
@@ -1274,6 +1292,21 @@ footer{
         position: relative;
         right: 0;
         left: 0;
-        margin: 0 30px;
+        margin: 0;
+    }
+    .contenidoQueCambia{
+        margin: 0;
+        min-width: 100%;
+        max-width: 100%;
+    }
+    .container-inicio-register{
+        font-size: 110%;
+    }
+    .container-inicio-login{
+        font-size: 110%;
+        margin: 0px 0 0 -70px;
+    }
+    .container-buscar{
+        margin: 0;
     }
 }

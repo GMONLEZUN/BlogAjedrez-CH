@@ -29,3 +29,8 @@ urlpatterns = [
 
 
 urlpatterns+=static(settings.MEDIA_URL, document_root=settings.MEDIA_ROOT)
+
+handler400 = 'Posts.views.handler400'
+handler403 = 'Posts.views.handler403'
+handler404 = 'Posts.views.handler404'
+handler500 = 'Posts.views.handler500'
