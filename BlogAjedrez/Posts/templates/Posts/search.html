@@ -40,12 +40,13 @@
             </div>
         {% endfor %}
     {% endif %}
-    
-    {% if not puzzles and not games and not bio %}
-        <p> No se encontraron resultados </p>
-    {% endif %}  
-
     {% if respuesta %}
         <p> {{respuesta}} </p>
     {% endif %}
+    {% if not puzzles and not games and not bio %}
+        <p> No se encontraron resultados </p>
+        <br>
+        <br>
+        <img src="{% static 'Posts/assets/carlsen_angry.jpg' %}" alt="" class="error-img">
+    {% endif %}  
 {% endblock %}

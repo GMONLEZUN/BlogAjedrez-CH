@@ -1,3 +1,4 @@
+from tabnanny import verbose
 from django.utils.timezone import now
 from django.db import models
 from django.contrib.auth.models import User
@@ -7,9 +8,9 @@ from ckeditor.fields import RichTextField
 
 
 class PostBio(models.Model):
-    title = models.CharField(max_length=255)
-    content = RichTextField(blank=True, null=True)
-    image = models.ImageField(upload_to='images_post',null=False,blank=False)
+    title = models.CharField(max_length=255, verbose_name='Título')
+    content = RichTextField(blank=True, null=True, verbose_name='Contenido')
+    image = models.ImageField(upload_to='images_post',null=False,blank=False, verbose_name='Imágen')
     date = models.DateTimeField(default=now, editable=False)
     author = models.ForeignKey(User, on_delete=models.CASCADE)
     likes = models.ManyToManyField(User, related_name="blog_postsBio")
@@ -26,10 +27,10 @@ class PostGames(models.Model):
     (2, '0-1'),
     (3, '1/2-1/2'),
 )
-    title = models.CharField(max_length=255)
-    title_players = models.CharField(max_length=255)
-    result = models.IntegerField(choices=RESULT_CHOICES)
-    content = RichTextField(blank=True, null=True)
+    title = models.CharField(max_length=255, verbose_name='Lugar y fecha')
+    title_players = models.CharField(max_length=255, verbose_name='Jugadores')
+    result = models.IntegerField(choices=RESULT_CHOICES, verbose_name='Resultado')
+    content = RichTextField(blank=True, null=True, verbose_name='Partida')
     image = models.ImageField(upload_to='images_post',null=False,blank=False)
     date = models.DateTimeField(default=now, editable=False)
     author = models.ForeignKey(User, on_delete=models.CASCADE)

@@ -1066,10 +1066,10 @@ footer{
     display: block;
     text-align: end;
     margin-right: 15px;
+    font-size: 0.8rem;
+    color: goldenrod;
 }
-.fide a{
-    color: inherit;
-}
+
 /* -----------------------  FIN ABOUT  ----------------------- */
 
 /* -----------------------  MENSAJES  ----------------------- */
@@ -1298,6 +1298,7 @@ footer{
         margin: 0;
         min-width: 100%;
         max-width: 100%;
+        padding: 2px;
     }
     .container-inicio-register{
         font-size: 110%;
@@ -1308,5 +1309,12 @@ footer{
     }
     .container-buscar{
         margin: 0;
+    }
+    body{
+        overflow-x: hidden;
+    }
+    .inicio-img-logo{
+        left: -41px;
+        width: 186px;
     }
 }

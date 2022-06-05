@@ -13,7 +13,8 @@
         {% endif %}
     </div>
     
-    <p class="detalle-titulo">{{object.title}}</p>
+    <p>{{object.title}}</p>
+    <p class="detalle-titulo">{{object.title_players}} [{% if object.result == 1 %}1-0{% elif object.result == 2 %}0-1{% elif object.result == 3 %}1/2-1/2{% endif %}]</p>
     <picture class="detalle__container-imagen">
         <img src="{{object.image.url}}" alt="" class="detalle-imagen">
     </picture>
