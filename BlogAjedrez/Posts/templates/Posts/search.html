@@ -3,7 +3,7 @@
 {% load static %}
 
 {% block contenidoQueCambia %}
-<h3 class="titulo-categoria">Problemas</h3>
+<h3 class="titulo-categoria">Resultado de búsqueda</h3>
     <div class="divisor"></div>
     {% if bio %}
 
@@ -22,9 +22,9 @@
         {% for item in games %}
             <div class="container-post">
                 <div class="container-post__userTitle">
-                    <p class="container-post__title">{{item.title}}</p><span class="fecha-lista">posted by @{{item.author.username}} > {{item.date}}</span>
+                    <p class="container-post__title">{{item.title_players}}</p><span class="fecha-lista">posted by @{{item.author.username}} > {{item.date}}</span>
                 </div>
-                <button class="boton-ver"><a href="{% url 'BioDetail' item.id %}"><i class="fa-solid fa-eye icon-eye"></i></a></button>
+                <button class="boton-ver"><a href="{% url 'GamesDetail' item.id %}"><i class="fa-solid fa-eye icon-eye"></i></a></button>
             </div>
         {% endfor %}
     {% endif %}

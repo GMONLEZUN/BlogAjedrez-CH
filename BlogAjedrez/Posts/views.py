@@ -268,7 +268,7 @@ def Search(request):
     if request.GET["input-busqueda"]:
         input = request.GET["input-busqueda"]
         bio = PostBio.objects.filter(title__icontains=input)
-        games = PostGames.objects.filter(title__icontains=input)
+        games = PostGames.objects.filter(title_players__icontains=input)
         puzzles = PostPuzzles.objects.filter(title__icontains=input)
         
         return render(request,"Posts/search.html", {"bio":bio,"games":games,"puzzles":puzzles})
